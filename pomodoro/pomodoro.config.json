@@ -1,0 +1,7 @@
+{
+  "start_sound": "start_sound.mp3",
+  "break_sound": "break_sound.mp3",
+  "work_interval": 25,
+  "break_interval": 5,
+  "session_count": 3
+}
