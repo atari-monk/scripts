@@ -5,93 +5,97 @@ from Logger import Logger
 from SoundPlayer import SoundPlayer
 from Timer import Timer
 
-logger = Logger('pomodoro_log.txt')
-config_handler = ConfigHandler()
-config = config_handler.get_config()
+class PomodoroManager:
+    def __init__(self):
+        self.logger = Logger('pomodoro_log.txt')
+        self.config_handler = ConfigHandler()
+        self.config = self.config_handler.get_config()
 
-formatted_config = json.dumps(config, indent=2)
-logger.save_log(f'\nConfiguration:\n{formatted_config}')
+        formatted_config = json.dumps(self.config, indent=2)
+        self.logger.save_log(f'\nConfiguration:\n{formatted_config}')
 
-work_interval = config.get('work_interval', 25)
-break_interval = config.get('break_interval', 5)
-session_count = config.get('pomodoro_count', 3)
+        self.work_interval = self.config.get('work_interval', 25)
+        self.break_interval = self.config.get('break_interval', 5)
+        self.session_count = self.config.get('pomodoro_count', 3)
 
-def start_timer_thread(timer):
-    thread = threading.Thread(target=timer.run)
-    thread.start()
-    return thread
+        self.interval_count = 0
+        self.timer = None
+        self.timer_thread = None
+        self.exit_event = None
+        self.skip_break = False
+        self.sound_player = SoundPlayer(self.config.get('break_sound'))
 
-interval_count = 0
-timer = None
-timer_thread = None
-exit_event = None
-skip_break = False
-sound_player = SoundPlayer(config.get('break_sound'))
+    def start_timer_thread(self, timer):
+        thread = threading.Thread(target=timer.run)
+        thread.start()
+        return thread
 
-def start_pomodoro():
-    global interval_count, exit_event, logger, timer, timer_thread
-    interval_count += 1
-    logger.save_log(f'Starting Pomodoro {interval_count}')
-    exit_event = threading.Event()
-    timer = Timer('Pomodoro', work_interval, config['start_sound'], exit_event, logger, interval_count, pomodoro_callback)
-    timer_thread = start_timer_thread(timer)
+    def start_pomodoro(self):
+        self.interval_count += 1
+        self.logger.save_log(f'Starting Pomodoro {self.interval_count}')
+        self.exit_event = threading.Event()
+        self.timer = Timer('Pomodoro', self.work_interval, self.config['start_sound'], self.exit_event, self.logger,
+                           self.interval_count, self.pomodoro_callback)
+        self.timer_thread = self.start_timer_thread(self.timer)
 
-def pomodoro_callback():
-    global sound_player
-    if interval_count < session_count:
-        start_break()
-    else:
-        logger.save_log(f'Completed {session_count} Pomodoros. Session complete!')
-        sound_player.play()
-
-def break_callback():
-    global sound_player
-    if interval_count < session_count:
-        start_pomodoro()
-    else:
-        logger.save_log(f'Completed {session_count} Pomodoros. Session complete!')
-        sound_player.play()
-
-def start_break():
-    global interval_count, exit_event, logger, timer, timer_thread
-    logger.save_log(f'Starting Break {interval_count}')
-    exit_event = threading.Event()
-    timer = Timer('Break', break_interval, config['break_sound'], exit_event, logger, interval_count, break_callback)
-    timer_thread = start_timer_thread(timer)
-
-def menu_thread():
-    global logger, interval_count, skip_break
-    while True:
-        user_input = input('Enter "i" to start pomodoro, "p" to pause, "u" to unpause, "s" to skip break, or "q" to quit: \n')
-        
-        if user_input.lower() == 'i':
-            interval_count = 0
-            skip_break = False
-            start_pomodoro()
-        elif user_input.lower() == 'p':
-            if timer and timer_thread and timer_thread.is_alive:
-                timer.pause()
-            else:
-                logger.save_log('No active timer to pause.')
-        elif user_input.lower() == 'u':
-            if timer and timer_thread and timer_thread.is_alive:
-                timer.unpause()
-            else:
-                logger.save_log('No paused timer to unpause.')
-        elif user_input.lower() == 's':
-            skip_break = True
-            if timer and timer_thread and timer_thread.is_alive:
-                timer.skip()
-            else:
-                logger.save_log('No active timer to skip break.')
-        elif user_input.lower() == 'q':
-            if timer_thread:
-                exit_event.set()
-                timer_thread.join()
-                logger.save_log('Quiting.')
-            break
+    def pomodoro_callback(self):
+        if self.interval_count < self.session_count:
+            self.start_break()
         else:
-            print('Invalid input. Please enter "i", "p", "u", or "q".')
+            self.logger.save_log(f'Completed {self.session_count} Pomodoros. Session complete!')
+            self.sound_player.play()
 
-menu_thread = threading.Thread(target=menu_thread)
-menu_thread.start()
+    def break_callback(self):
+        if self.interval_count < self.session_count:
+            self.start_pomodoro()
+        else:
+            self.logger.save_log(f'Completed {self.session_count} Pomodoros. Session complete!')
+            self.sound_player.play()
+
+    def start_break(self):
+        self.logger.save_log(f'Starting Break {self.interval_count}')
+        self.exit_event = threading.Event()
+        self.timer = Timer('Break', self.break_interval, self.config['break_sound'], self.exit_event, self.logger,
+                           self.interval_count, self.break_callback)
+        self.timer_thread = self.start_timer_thread(self.timer)
+
+    def menu_thread(self):
+        while True:
+            user_input = input('Enter "i" to start pomodoro, "p" to pause, "u" to unpause, "s" to skip break, or "q" to quit: \n')
+
+            if user_input.lower() == 'i':
+                self.interval_count = 0
+                self.skip_break = False
+                self.start_pomodoro()
+            elif user_input.lower() == 'p':
+                if self.timer and self.timer_thread and self.timer_thread.is_alive:
+                    self.timer.pause()
+                else:
+                    self.logger.save_log('No active timer to pause.')
+            elif user_input.lower() == 'u':
+                if self.timer and self.timer_thread and self.timer_thread.is_alive:
+                    self.timer.unpause()
+                else:
+                    self.logger.save_log('No paused timer to unpause.')
+            elif user_input.lower() == 's':
+                self.skip_break = True
+                if self.timer and self.timer_thread and self.timer_thread.is_alive:
+                    self.timer.skip()
+                else:
+                    self.logger.save_log('No active timer to skip break.')
+            elif user_input.lower() == 'q':
+                if self.timer_thread:
+                    self.exit_event.set()
+                    self.timer_thread.join()
+                    self.logger.save_log('Quitting.')
+                break
+            else:
+                print('Invalid input. Please enter "i", "p", "u", or "q".')
+
+    def run(self):
+        menu_thread = threading.Thread(target=self.menu_thread)
+        menu_thread.start()
+
+if __name__ == "__main__":
+    pomodoro_manager = PomodoroManager()
+    pomodoro_manager.run()
