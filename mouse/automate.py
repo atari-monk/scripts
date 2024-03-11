@@ -3,9 +3,9 @@ import pyautogui
 
 # Define your list of mouse commands with timing
 mouse_commands = [
-    {"command": "move", "x": 1843, "y": 353, "duration": 0.2},
+    {"command": "move", "x": 1859, "y": 288, "duration": 0.2},
     {"command": "click", "button": "left", "duration": 0.1},
-    {"command": "move", "x": 1717, "y": 493, "duration": 0.2},
+    {"command": "move", "x": 1801, "y": 441, "duration": 0.2},
     {"command": "click", "button": "left", "duration": 0.1},
     # Add more commands as needed
 ]
