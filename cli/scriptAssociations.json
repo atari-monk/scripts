@@ -1,15 +1,57 @@
 [
     {
-        "Command": "pomodoro",
+        "Command": "cli",
+        "ScriptFolder": "C:\\atari-monk\\code\\scripts\\cli",
+        "ScriptFile": "Main.ps1",
+        "Title": "Scripts Commander"
+    },
+    {
+        "Command": "print_mouse",
+        "ScriptFolder": "C:\\atari-monk\\code\\scripts\\mouse",
+        "ScriptFile": "print.py",
+        "Title": "Print Mouse"
+    },
+    {
+        "Command": "mouse",
+        "ScriptFolder": "C:\\atari-monk\\code\\scripts\\mouse",
+        "ScriptFile": "automate.py",
+        "Title": "Mouse"
+    },
+    {
+        "Command": "pomodoro_sounds",
         "ScriptFolder": "C:\\atari-monk\\code\\scripts\\pomodoro",
         "ScriptFile": "PomodoroManager.py",
         "Title": "Pomodoro"
     },
     {
+        "Command": "pomodoro_popup",
+        "ScriptFolder": "C:\\atari-monk\\code\\scripts\\pomodoro2",
+        "ScriptFile": "pomodoro.py",
+        "Title": "Pomodoro Popup"
+    },
+    {
+        "Command": "text_to_speech",
+        "ScriptFolder": "C:\\atari-monk\\code\\scripts\\text_to_speech",
+        "ScriptFile": "text_to_speech.ps1",
+        "Title": "Text to speech"
+    },
+    {
         "Command": "clone_file",
         "ScriptFolder": "C:\\atari-monk\\code\\scripts\\utils",
-        "ScriptFile": "RunCloneFile.ps1",
-        "Title": "Clone File"
+        "ScriptFile": "CloneFile.ps1",
+        "Title": "Clone File",
+        "Parameters": [
+            "-Mode Arguments -fileFolder 'C:atari-monkcodescriptsmouse' -fileName 'command.txt'",
+            "-Mode Arguments -fileFolder 'C:atari-monkcodescriptsmouse' -fileName 'command.txt' -cloneFileName 'custom_name.txt'",
+            "-Mode UserInput"
+        ]
+    },
+    {
+        "Command": "utc_to_cet",
+        "ScriptFolder": "C:\\atari-monk\\code\\scripts\\utils",
+        "ScriptFile": "Dates.py",
+        "Title": "Convert Date",
+        "Parameters": ["-utc 2024-03-23T08:30:00"]
     },
     {
         "Command": "timewatch",
@@ -40,12 +82,6 @@
         "ScriptFolder": "C:\\atari-monk\\code\\micro-engine\\script",
         "ScriptFile": "set-title.ps1",
         "Title": "Set Title"
-    },
-    {
-        "Command": "date_utc_to_cet",
-        "ScriptFolder": "C:\\atari-monk\\code\\micro-engine\\script",
-        "ScriptFile": "Dates.py",
-        "Title": "Convert Date"
     },
     {
         "Command": "texttospeech",

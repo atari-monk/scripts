@@ -1,30 +1,17 @@
-function CloneFile {
-    param(
-        [string]$fileFolder,
-        [string]$fileName,
-        [string]$cloneFileName = ""
-    )
+param (
+    [string]$Mode = "UserInput"
+)
 
-    Write-Host "Received parameters:"
-    Write-Host "fileFolder: $fileFolder"
-    Write-Host "fileName: $fileName"
-    Write-Host "cloneFileName: $cloneFileName"
-    
-    if (-not $cloneFileName) {
-        $cloneFileName = "New_$fileName"
-    }
+Import-Module "C:\atari-monk\code\scripts\utils\CloneFile.psm1"
 
-    $filePath = Join-Path $fileFolder $fileName
-
-    if (Test-Path $filePath) {
-        $fileExtension = [System.IO.Path]::GetExtension($filePath)
-        $newFilePath = Join-Path $fileFolder ($cloneFileName + $fileExtension)
-
-        Copy-Item -Path $filePath -Destination $newFilePath
-
-        Write-Host "File cloned successfully. New file path: $newFilePath"
-    }
-    else {
-        Write-Host "File not found: $filePath"
-    }
+if ($Mode -eq "Arguments") {
+    Write-Host 'CloneFileFromArguments'
+    CloneFileFromArguments($args)
+}
+elseif ($Mode -eq "UserInput") {
+    Write-Host 'CloneFileFromUserInput'
+    CloneFileFromUserInput
+}
+else {
+    Write-Host "Invalid mode specified. Please specify either 'Arguments' or 'UserInput'."
 }
