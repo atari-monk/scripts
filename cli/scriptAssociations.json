@@ -1,0 +1,59 @@
+[
+    {
+        "Command": "pomodoro",
+        "ScriptFolder": "C:\\atari-monk\\code\\scripts\\pomodoro",
+        "ScriptFile": "PomodoroManager.py",
+        "Title": "Pomodoro"
+    },
+    {
+        "Command": "timewatch",
+        "ScriptFolder": "C:\\atari-monk\\code\\micro-engine\\script",
+        "ScriptFile": "TimeWatch.py",
+        "Title": "Time Watch"
+    },
+    {
+        "Command": "listfiles",
+        "ScriptFolder": "C:\\atari-monk\\code\\micro-engine\\script",
+        "ScriptFile": "ListFiles.ps1",
+        "Title": "List Files"
+    },
+    {
+        "Command": "listfolders",
+        "ScriptFolder": "C:\\atari-monk\\code\\micro-engine\\script",
+        "ScriptFile": "ListFolders.ps1",
+        "Title": "List Folders"
+    },
+    {
+        "Command": "notes",
+        "ScriptFolder": "C:\\atari-monk\\code\\powershell\\atari-monk",
+        "ScriptFile": "run_notes.ps1",
+        "Title": "Notes"
+    },
+    {
+        "Command": "settitle",
+        "ScriptFolder": "C:\\atari-monk\\code\\micro-engine\\script",
+        "ScriptFile": "set-title.ps1",
+        "Title": "Set Title"
+    },
+    {
+        "Command": "date_utc_to_cet",
+        "ScriptFolder": "C:\\atari-monk\\code\\micro-engine\\script",
+        "ScriptFile": "Dates.py",
+        "Title": "Convert Date"
+    },
+    {
+        "Command": "texttospeech",
+        "ScriptFolder": "C:\\atari-monk\\code\\micro-engine\\script\\text_to_speech",
+        "ScriptFile": "text_to_speech.ps1",
+        "Title": "Text To Speech"
+    },
+    {
+        "Command": "runtools",
+        "Commands": ["pomodoro", "timewatch", "texttospeech"],
+        "Title": "Runs bunch of tools"
+    },
+    {
+        "Command": "help",
+        "Title": "Prints available commands"
+    }
+]
