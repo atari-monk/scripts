@@ -1,4 +1,3 @@
-# Load the loader script
 . ".\Loader.ps1"
 
 $host.ui.RawUI.WindowTitle = 'Cli Runner'

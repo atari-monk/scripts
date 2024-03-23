@@ -6,6 +6,12 @@
         "Title": "Pomodoro"
     },
     {
+        "Command": "clone_file",
+        "ScriptFolder": "C:\\atari-monk\\code\\scripts\\utils",
+        "ScriptFile": "RunCloneFile.ps1",
+        "Title": "Clone File"
+    },
+    {
         "Command": "timewatch",
         "ScriptFolder": "C:\\atari-monk\\code\\micro-engine\\script",
         "ScriptFile": "TimeWatch.py",

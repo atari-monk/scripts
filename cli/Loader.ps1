@@ -1,4 +1,3 @@
-# Load data from JSON file and convert to hashtable
 $scriptAssociations = @{}
 $jsonData = Get-Content -Raw -Path "scriptAssociations.json" | ConvertFrom-Json
 $jsonData | ForEach-Object {
@@ -29,7 +28,40 @@ function RunCommand {
 
         try {
             Set-Location $scriptFolder
-            Start-Process powershell -ArgumentList "-NoExit -Command `"[console]::Title='$title'; & '$scriptPath' $parameters`""
+
+            Write-Host "Script Path: $scriptPath"
+            Write-Host "Received Parameters: $parameters"
+
+            $paramsArray = $parameters -split ' '
+
+            Write-Host "Parameter Array: $($paramsArray -join ', ')"
+
+            $paramsHashtable = @{}
+
+            for ($i = 0; $i -lt $paramsArray.Length; $i += 2) {
+                $key = $paramsArray[$i]
+                $value = $paramsArray[$i + 1]
+
+                $key = $key.TrimStart('-')
+
+                Write-Host "Parsed Parameter - Key: $key, Value: $value"
+
+                $paramsHashtable[$key] = $value
+            }
+
+            Write-Host "Parsed Parameters: $($paramsHashtable | Format-Table | Out-String)"
+
+            $argList = @(
+                "-NoExit",
+                "-Command",
+                "[console]::Title='$title'; . '$scriptPath'"
+            )
+
+            foreach ($key in $paramsHashtable.Keys) {
+                $argList += "-$key", $paramsHashtable[$key]
+            }
+
+            Start-Process powershell -ArgumentList $argList
         }
         finally {
             Set-Location $originalDirectory
