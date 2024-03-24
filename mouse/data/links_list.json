@@ -1,3 +1,5 @@
 [
-    
+	{ "note": "test" },
+	{ "note": "test" },
+	{ "command": "move", "x": 0, "y": 0, "duration": 0.2, "note": "" }
 ]

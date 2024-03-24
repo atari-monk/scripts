@@ -6,10 +6,17 @@ $jsonData | ForEach-Object {
 
 function ShowHelp {
     Write-Host "Available Commands:"
-    foreach ($cmd in $scriptAssociations.Keys) {
-        $scriptInfo = $scriptAssociations[$cmd]
-        Write-Host "`t$cmd - $($scriptInfo.Title)"
+    $sortedCommands = $scriptAssociations.Values | Sort-Object Order
+    $table = @()
+    foreach ($cmd in $sortedCommands) {
+        $row = New-Object PSObject -Property @{
+            'Order'   = $cmd.Order
+            'Title'   = $cmd.Title
+            'Command' = $cmd.Command
+        }
+        $table += $row
     }
+    $table | Format-Table -AutoSize
 }
 
 function RunCommand {

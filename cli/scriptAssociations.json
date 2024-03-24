@@ -1,39 +1,50 @@
 [
 	{
+		"Command": "help",
+		"Title": "Prints available commands",
+		"Order": 1
+	},
+	{
 		"Command": "cli",
 		"ScriptFolder": "C:\\atari-monk\\code\\scripts\\cli",
 		"ScriptFile": "Main.ps1",
-		"Title": "Scripts Commander"
+		"Title": "Scripts Commander",
+		"Order": 2
 	},
 	{
 		"Command": "mouse_print",
 		"ScriptFolder": "C:\\atari-monk\\code\\scripts\\mouse",
 		"ScriptFile": "print.py",
-		"Title": "Print Mouse"
+		"Title": "Print Mouse",
+		"Order": 3
 	},
 	{
 		"Command": "mouse_automate",
 		"ScriptFolder": "C:\\atari-monk\\code\\scripts\\mouse",
 		"ScriptFile": "automate.py",
-		"Title": "Automate Mouse"
+		"Title": "Automate Mouse",
+		"Order": 4
 	},
 	{
 		"Command": "pomodoro_sounds",
 		"ScriptFolder": "C:\\atari-monk\\code\\scripts\\pomodoro",
 		"ScriptFile": "PomodoroManager.py",
-		"Title": "Pomodoro"
+		"Title": "Pomodoro",
+		"Order": 5
 	},
 	{
 		"Command": "pomodoro_popup",
 		"ScriptFolder": "C:\\atari-monk\\code\\scripts\\pomodoro_2",
 		"ScriptFile": "pomodoro.py",
-		"Title": "Pomodoro Popup"
+		"Title": "Pomodoro Popup",
+		"Order": 6
 	},
 	{
 		"Command": "text_to_speech",
 		"ScriptFolder": "C:\\atari-monk\\code\\scripts\\text_to_speech",
 		"ScriptFile": "text_to_speech.ps1",
-		"Title": "Text to speech"
+		"Title": "Text to speech",
+		"Order": 7
 	},
 	{
 		"Command": "clone_file",
@@ -44,58 +55,21 @@
 			"-Mode Arguments -fileFolder 'C:atari-monkcodescriptsmouse' -fileName 'command.txt'",
 			"-Mode Arguments -fileFolder 'C:atari-monkcodescriptsmouse' -fileName 'command.txt' -cloneFileName 'custom_name.txt'",
 			"-Mode UserInput"
-		]
+		],
+		"Order": 8
 	},
 	{
 		"Command": "utc_to_cet",
 		"ScriptFolder": "C:\\atari-monk\\code\\scripts\\utils",
 		"ScriptFile": "Dates.py",
 		"Title": "Convert Date",
-		"Parameters": ["-utc 2024-03-23T08:30:00"]
-	},
-	{
-		"Command": "timewatch",
-		"ScriptFolder": "C:\\atari-monk\\code\\micro-engine\\script",
-		"ScriptFile": "TimeWatch.py",
-		"Title": "Time Watch"
-	},
-	{
-		"Command": "listfiles",
-		"ScriptFolder": "C:\\atari-monk\\code\\micro-engine\\script",
-		"ScriptFile": "ListFiles.ps1",
-		"Title": "List Files"
-	},
-	{
-		"Command": "listfolders",
-		"ScriptFolder": "C:\\atari-monk\\code\\micro-engine\\script",
-		"ScriptFile": "ListFolders.ps1",
-		"Title": "List Folders"
-	},
-	{
-		"Command": "notes",
-		"ScriptFolder": "C:\\atari-monk\\code\\powershell\\atari-monk",
-		"ScriptFile": "run_notes.ps1",
-		"Title": "Notes"
-	},
-	{
-		"Command": "settitle",
-		"ScriptFolder": "C:\\atari-monk\\code\\micro-engine\\script",
-		"ScriptFile": "set-title.ps1",
-		"Title": "Set Title"
-	},
-	{
-		"Command": "texttospeech",
-		"ScriptFolder": "C:\\atari-monk\\code\\micro-engine\\script\\text_to_speech",
-		"ScriptFile": "text_to_speech.ps1",
-		"Title": "Text To Speech"
+		"Parameters": ["-utc 2024-03-23T08:30:00"],
+		"Order": 9
 	},
 	{
 		"Command": "runtools",
-		"Commands": ["pomodoro", "timewatch", "texttospeech"],
-		"Title": "Runs bunch of tools"
-	},
-	{
-		"Command": "help",
-		"Title": "Prints available commands"
+		"Commands": ["pomodoro", "texttospeech"],
+		"Title": "Runs bunch of tools",
+		"Order": 10
 	}
 ]
