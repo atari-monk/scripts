@@ -1,0 +1,6 @@
+[
+	{ "command": "move", "x": 0, "y": 0, "duration": 0.2 },
+	{ "command": "click", "button": "left", "duration": 0.1 },
+	{ "command": "ctrl_v", "duration": 0.1 },
+	{ "command": "enter", "duration": 0.1 }
+]
