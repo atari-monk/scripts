@@ -16,13 +16,17 @@ def on_click(x, y, button, pressed):
 def execute_mouse_commands_with_repeats(commands, repeats):
     global stop_execution
     for _ in range(repeats):
+        step_number = 1
         if stop_execution:
             break
         for command in commands:
             if stop_execution:
                 break
             if command.get("note"):
-                print("Note:", command["note"])
+                print(f"{step_number}: {command['note']}")
+                with open('execution.log', 'a') as log_file:
+                    log_file.write(f'{step_number}: {command["note"]}\n')
+                step_number += 1
             if command.get("command"):
                 if command["command"] == "move":
                     pyautogui.moveTo(command["x"], command["y"], duration=command["duration"])
@@ -34,6 +38,7 @@ def execute_mouse_commands_with_repeats(commands, repeats):
                 elif command["command"] == "enter":
                     pyautogui.press('enter')
                     time.sleep(command["duration"])
+                step_number += 1
                 time.sleep(command["duration"])
 
 try:
