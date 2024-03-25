@@ -15,7 +15,10 @@ def on_click(x, y, button, pressed):
 
 def execute_mouse_commands_with_repeats(commands, repeats):
     global stop_execution
-    for _ in range(repeats):
+    for repeat_number in range(1, repeats + 1):
+        print(f"Repeat {repeat_number}")
+        with open('execution.log', 'a') as log_file:
+            log_file.write(f'Repeat {repeat_number}\n')
         step_number = 1
         if stop_execution:
             break
@@ -23,9 +26,9 @@ def execute_mouse_commands_with_repeats(commands, repeats):
             if stop_execution:
                 break
             if command.get("note"):
-                print(f"{step_number}: {command['note']}")
+                print(f"Step {step_number}: {command['note']}")
                 with open('execution.log', 'a') as log_file:
-                    log_file.write(f'{step_number}: {command["note"]}\n')
+                    log_file.write(f'Step {step_number}: {command["note"]}\n')
                 step_number += 1
             if command.get("command"):
                 if command["command"] == "move":
