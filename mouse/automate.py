@@ -2,17 +2,11 @@ import time
 import pyautogui
 import json
 import keyboard
-import win32gui
-import win32con
-
-def minimize_console_window():
-    console_window = win32gui.GetForegroundWindow()
-    win32gui.ShowWindow(console_window, win32con.SW_MINIMIZE)
 
 def execute_mouse_commands_with_repeats(commands, repeats):
     for _ in range(repeats):
         for command in commands:
-            if keyboard.is_pressed('esc'):
+            if keyboard.is_pressed('right'):
                 print("Execution stopped by user.")
                 return
             if command.get("note"):
@@ -35,8 +29,6 @@ try:
 except ValueError:
     print("Invalid input. Please enter a valid number.")
     repeats = 0
-
-minimize_console_window()
 
 with open('data/video_list/data.json', 'r') as file:
     mouse_commands = json.load(file)

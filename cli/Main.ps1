@@ -1,4 +1,4 @@
-. ".\Loader.ps1"
+. ".\loader.ps1"
 
 $host.ui.RawUI.WindowTitle = 'Cli Runner'
 
