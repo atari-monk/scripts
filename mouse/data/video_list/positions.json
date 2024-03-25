@@ -22,7 +22,7 @@
     },
     {
         "id": 4,
-        "name": "Text Editor",
+        "name": "Text Editor, tab with file title",
         "x": 997,
         "y": 89,
         "color": "#414141"

@@ -6,5 +6,6 @@
     "3 Move bottom right of browser to 960, 1030 with 1,1 error margin",
     "4 Open notepad++ and move it to take right part of screen",
     "5 Remove bar 'Unavailable videos are hidden' on top of playlist if present!",
-    "6 Check key positions and update them and file if needed"
+    "6 Check positions with positions file and update them if needed",
+    "7 If positions changed, update file data where needed"
 ]
