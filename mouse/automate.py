@@ -2,6 +2,7 @@ import time
 import pyautogui
 import json
 from pynput import mouse
+import window
 
 stop_execution = False
 
@@ -40,6 +41,8 @@ try:
 except ValueError:
     print("Invalid input. Please enter a valid number.")
     repeats = 0
+
+window.minimize_console_window()
 
 with open('data/video_list/data.json', 'r') as file:
     mouse_commands = json.load(file)
