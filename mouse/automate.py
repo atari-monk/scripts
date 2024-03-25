@@ -38,7 +38,7 @@ except ValueError:
 
 minimize_console_window()
 
-with open('data\links_list.json', 'r') as file:
+with open('data/video_list/data.json', 'r') as file:
     mouse_commands = json.load(file)
 
 execute_mouse_commands_with_repeats(mouse_commands, repeats)
