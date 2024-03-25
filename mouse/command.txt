@@ -1,4 +1,7 @@
+//used
 pip install pyautogui
+pip install pynput
+
+//other
 pip install keyboard
 pip install pywin32
-pip install pynput
