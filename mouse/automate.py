@@ -1,14 +1,25 @@
 import time
 import pyautogui
 import json
-import keyboard
+from pynput import mouse
+
+stop_execution = False
+
+def on_click(x, y, button, pressed):
+    global stop_execution
+    if button == mouse.Button.right:
+        print("Execution stopped by user.")
+        stop_execution = True
+        return False
 
 def execute_mouse_commands_with_repeats(commands, repeats):
+    global stop_execution
     for _ in range(repeats):
+        if stop_execution:
+            break
         for command in commands:
-            if keyboard.is_pressed('right'):
-                print("Execution stopped by user.")
-                return
+            if stop_execution:
+                break
             if command.get("note"):
                 print("Note:", command["note"])
             if command.get("command"):
@@ -33,4 +44,6 @@ except ValueError:
 with open('data/video_list/data.json', 'r') as file:
     mouse_commands = json.load(file)
 
-execute_mouse_commands_with_repeats(mouse_commands, repeats)
+with mouse.Listener(on_click=on_click) as listener:
+    execute_mouse_commands_with_repeats(mouse_commands, repeats)
+    listener.join()
