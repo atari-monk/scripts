@@ -1,0 +1,10 @@
+[
+    "Task: Move links from YT list to text file",
+    "Preparations:",
+    "1 Open YT on your video list",
+    "2 Move top left of browser to 0, 0 with 1,1 error margin",
+    "3 Move bottom right of browser to 960, 1030 with 1,1 error margin",
+    "4 Open notepad++ and move it to take right part of screen",
+    "5 Remove bar 'Unavailable videos are hidden' on top of playlist if present!",
+    "6 Check key positions and update them and file if needed"
+]
