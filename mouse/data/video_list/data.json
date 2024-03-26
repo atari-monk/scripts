@@ -4,13 +4,13 @@
         "PositionId": 1,
         "x": 848,
         "y": 553,
-        "duration": 0.5,
+        "duration": 0.3,
         "note": "Video menu of first item on the list"
     },
     {
         "command": "click",
         "button": "left",
-        "duration": 0.2,
+        "duration": 0.1,
         "note": "Open menu"
     },
     {
@@ -18,13 +18,13 @@
         "PositionId": 2,
         "x": 746,
         "y": 773,
-        "duration": 0.2,
+        "duration": 0.1,
         "note": "Move to button Share"
     },
     {
         "command": "click",
         "button": "left",
-        "duration": 0.2,
+        "duration": 0.1,
         "note": "Open Share"
     },
     {
@@ -32,13 +32,13 @@
         "PositionId": 3,
         "x": 674,
         "y": 670,
-        "duration": 0.2,
+        "duration": 0.1,
         "note": "Move to Copy"
     },
     {
         "command": "click",
         "button": "left",
-        "duration": 0.2,
+        "duration": 0.1,
         "note": "Click Copy"
     },
     {
@@ -46,29 +46,29 @@
         "PositionId": 4,
         "x": 997,
         "y": 89,
-        "duration": 0.2,
+        "duration": 0.1,
         "note": "Move over text editor"
     },
     {
         "command": "click",
         "button": "left",
-        "duration": 0.2,
+        "duration": 0.1,
         "note": "Focus text editor"
     },
-    { "command": "ctrl_v", "duration": 0.2, "note": "Paste link" },
-    { "command": "enter", "duration": 0.2, "note": "Enter" },
+    { "command": "ctrl_v", "duration": 0.1, "note": "Paste link" },
+    { "command": "enter", "duration": 0.1, "note": "Enter" },
     {
         "command": "move",
         "PositionId": 5,
         "x": 708,
         "y": 358,
-        "duration": 0.2,
+        "duration": 0.1,
         "note": "Move on close Share popup"
     },
     {
         "command": "click",
         "button": "left",
-        "duration": 0.2,
+        "duration": 0.1,
         "note": "Close Popup"
     },
     {
@@ -76,13 +76,13 @@
         "PositionId": 1,
         "x": 848,
         "y": 553,
-        "duration": 0.2,
+        "duration": 0.1,
         "note": "Video menu of first item on the list"
     },
     {
         "command": "click",
         "button": "left",
-        "duration": 0.2,
+        "duration": 0.1,
         "note": "Open menu"
     },
     {
@@ -90,13 +90,13 @@
         "PositionId": 6,
         "x": 742,
         "y": 705,
-        "duration": 0.2,
+        "duration": 0.1,
         "note": "Move over delete video button"
     },
     {
         "command": "click",
         "button": "left",
-        "duration": 0.2,
+        "duration": 0.1,
         "note": "Remove video"
     }
 ]
