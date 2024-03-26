@@ -16,7 +16,7 @@ def on_click(x, y, button, pressed):
 def execute_mouse_commands_with_repeats(repeats):
     global stop_execution
     
-    positions = load_positions('data/video_list/positions_shorts.json')
+    positions = load_positions('data/video_list/positions_watch_later.json')
     mouse_commands = load_mouse_commands('data/video_list/data.json')
     mouse_commands = join_positions_to_commands(mouse_commands, positions)
     
