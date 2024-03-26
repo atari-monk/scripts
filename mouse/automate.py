@@ -1,8 +1,8 @@
 import time
 import pyautogui
-import json
 from pynput import mouse
 import window
+from data_loader import load_positions, load_mouse_commands, join_positions_to_commands
 
 stop_execution = False
 
@@ -13,8 +13,13 @@ def on_click(x, y, button, pressed):
         stop_execution = True
         return False
 
-def execute_mouse_commands_with_repeats(commands, repeats):
+def execute_mouse_commands_with_repeats(repeats):
     global stop_execution
+    
+    positions = load_positions('data/video_list/positions_shorts.json')
+    mouse_commands = load_mouse_commands('data/video_list/data.json')
+    mouse_commands = join_positions_to_commands(mouse_commands, positions)
+    
     for repeat_number in range(1, repeats + 1):
         print(f"Repeat {repeat_number}")
         with open('execution.log', 'a') as log_file:
@@ -22,7 +27,7 @@ def execute_mouse_commands_with_repeats(commands, repeats):
         step_number = 1
         if stop_execution:
             break
-        for command in commands:
+        for command in mouse_commands:
             if stop_execution:
                 break
             if command.get("note"):
@@ -52,9 +57,6 @@ except ValueError:
 
 window.minimize_console_window()
 
-with open('data/video_list/data.json', 'r') as file:
-    mouse_commands = json.load(file)
-
 with mouse.Listener(on_click=on_click) as listener:
-    execute_mouse_commands_with_repeats(mouse_commands, repeats)
+    execute_mouse_commands_with_repeats(repeats)
     listener.join()

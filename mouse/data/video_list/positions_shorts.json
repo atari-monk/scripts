@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "name": "Video menu",
+        "x": 848,
+        "y": 553,
+        "color": "#FFFFFF"
+    },
+    {
+        "id": 2,
+        "name": "Share Button",
+        "x": 746,
+        "y": 743,
+        "color": "#535353"
+    },
+    {
+        "id": 3,
+        "name": "Copy Button",
+        "x": 674,
+        "y": 670,
+        "color": "#385F81"
+    },
+    {
+        "id": 4,
+        "name": "Text Editor, tab with file title",
+        "x": 997,
+        "y": 89,
+        "color": "#414141"
+    },
+    {
+        "id": 5,
+        "name": "Close Share Popup Button",
+        "x": 708,
+        "y": 358,
+        "color": "#595959"
+    },
+    {
+        "id": 6,
+        "name": "Delete video button",
+        "x": 742,
+        "y": 790,
+        "color": "#535353"
+    }
+]

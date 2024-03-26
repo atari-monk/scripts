@@ -1,9 +1,7 @@
 [
     {
         "command": "move",
-        "PositionId": 1,
-        "x": 848,
-        "y": 553,
+        "positionId": 1,
         "duration": 0.3,
         "note": "Video menu of first item on the list"
     },
@@ -15,9 +13,7 @@
     },
     {
         "command": "move",
-        "PositionId": 2,
-        "x": 746,
-        "y": 773,
+        "positionId": 2,
         "duration": 0.1,
         "note": "Move to button Share"
     },
@@ -29,9 +25,7 @@
     },
     {
         "command": "move",
-        "PositionId": 3,
-        "x": 674,
-        "y": 670,
+        "positionId": 3,
         "duration": 0.1,
         "note": "Move to Copy"
     },
@@ -43,9 +37,7 @@
     },
     {
         "command": "move",
-        "PositionId": 4,
-        "x": 997,
-        "y": 89,
+        "positionId": 4,
         "duration": 0.1,
         "note": "Move over text editor"
     },
@@ -59,9 +51,7 @@
     { "command": "enter", "duration": 0.1, "note": "Enter" },
     {
         "command": "move",
-        "PositionId": 5,
-        "x": 708,
-        "y": 358,
+        "positionId": 5,
         "duration": 0.1,
         "note": "Move on close Share popup"
     },
@@ -73,9 +63,7 @@
     },
     {
         "command": "move",
-        "PositionId": 1,
-        "x": 848,
-        "y": 553,
+        "positionId": 1,
         "duration": 0.1,
         "note": "Video menu of first item on the list"
     },
@@ -87,9 +75,7 @@
     },
     {
         "command": "move",
-        "PositionId": 6,
-        "x": 742,
-        "y": 705,
+        "positionId": 6,
         "duration": 0.1,
         "note": "Move over delete video button"
     },
