@@ -2,3 +2,5 @@ mouseInfoLog.txt
 pomodoro/pomodoro_log.txt
 __pycache__
 execution.log
+build
+node_modules
