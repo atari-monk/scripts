@@ -15,6 +15,8 @@ foreach ($obj in $jsonData) {
     $objHours = 0
     $objMinutes = 0
 
+    $objProjectSums = @{}
+
     # Loop through each time entry for the ID
     foreach ($timeEntry in $obj.times) {
         # Calculate the duration
@@ -32,12 +34,27 @@ foreach ($obj in $jsonData) {
         $hours = $duration.Hours
         $minutes = $duration.Minutes
 
-        # Update total sum
+        # Update total sum for the current ID
+        $objHours += $hours
+        $objMinutes += $minutes
+
+        # Update project sums for the current ID
+        $proj = $timeEntry.proj
+        if (-not $objProjectSums.ContainsKey($proj)) {
+            $objProjectSums[$proj] = [pscustomobject]@{
+                Hours = $hours
+                Minutes = $minutes
+            }
+        } else {
+            $objProjectSums[$proj].Hours += $hours
+            $objProjectSums[$proj].Minutes += $minutes
+        }
+
+        # Update total sum for all IDs
         $totalHours += $hours
         $totalMinutes += $minutes
 
-        # Update project sums
-        $proj = $timeEntry.proj
+        # Update project sums for all IDs
         if (-not $projectSums.ContainsKey($proj)) {
             $projectSums[$proj] = [pscustomobject]@{
                 Hours = $hours
@@ -48,7 +65,7 @@ foreach ($obj in $jsonData) {
             $projectSums[$proj].Minutes += $minutes
         }
 
-        # Check if minutes overflow to hours
+        # Check if minutes overflow to hours for the total sum
         if ($totalMinutes -ge 60) {
             $totalHours += 1
             $totalMinutes -= 60
@@ -57,11 +74,11 @@ foreach ($obj in $jsonData) {
 
     # Output sum for the current ID
     $output = "ID: $($obj.id)`r`n"
-    foreach ($projSum in $projectSums.GetEnumerator()) {
+    foreach ($projSum in $objProjectSums.GetEnumerator()) {
         $projDuration = $projSum.Value
         $output += "Project $($projSum.Name) Sum: $($projDuration.Hours) hours $($projDuration.Minutes) minutes`r`n"
     }
-    $output += "Total Sum: $totalHours hours $totalMinutes minutes`r`n`r`n"
+    $output += "Total Sum: $objHours hours $objMinutes minutes`r`n`r`n"
 
     # Write output to file
     $output | Out-File -FilePath $outputFilePath -Append -Encoding utf8
