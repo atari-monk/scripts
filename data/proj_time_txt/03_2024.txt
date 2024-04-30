@@ -8,7 +8,7 @@ micro_engine
 micro_engine
 14:20
 16:30
-Sending cv
+sending_cv
 19:00
 20:00
 react_tutorial
@@ -16,16 +16,21 @@ react_tutorial
 22:30
 id=22
 react_tutorial
-01:00
+15:00
+16:00
 micro_engine
-01:20
+16:00
+17:20
 id=23
-Portfolio page
-01:00
+portfolio_page
+15:00
+16:00
 react_tutorial
-01:00
-Inventory page
-01:00
+16:00
+17:00
+inventory_page
+17:00
+18:00
 id=26
 micro_engine
 18:36
@@ -40,17 +45,17 @@ micro_engine
 micro_engine
 13:33
 15:20
-micro_engine, scripts
+micro_engine
 17:30
 19:38
-micro_engine, scripts
+micro_engine
 23:06
 00:38
 id=28
 scripts
 11:14
 13:54
-nestjs tutorial
+nestjs_tutorial
 14:48
 15:51
 notes
@@ -60,7 +65,7 @@ micro_engine
 18:18
 20:46
 id=29
-nestjs tutorial
+nestjs_tutorial
 11:33
 12:20
 micro_engine
@@ -69,11 +74,11 @@ micro_engine
 micro_engine
 16:04
 17:29
-react tutorial
+react_tutorial
 18:06
 19:45
 id=30
-nestjs-tutorial
+nestjs_tutorial
 14:30
 17:16
 micro_engine

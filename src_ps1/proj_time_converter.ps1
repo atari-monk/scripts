@@ -1,6 +1,6 @@
 # Specify the input and output file paths
-$inFilePath = "../data/proj_time.txt"
-$outFilePath = "../data/proj_time_convert.json"
+$inFilePath = "../data/proj_time_txt/03_2024.txt"
+$outFilePath = "../data/proj_time_json/03_2024.json"
 
 Write-Host "Input file path: $inFilePath"
 Write-Host "Output file path: $outFilePath"
@@ -19,7 +19,7 @@ for ($i = 0; $i -lt $content.Count; $i++) {
     if ($line.StartsWith("id=")) {
         # Extract the ID
         $currentId = [int]($line -replace 'id=', '')
-        $currentEntry = @{
+        $currentEntry = [ordered]@{
             "id"    = $currentId
             "times" = @()
         }
@@ -35,7 +35,7 @@ for ($i = 0; $i -lt $content.Count; $i++) {
             # Move to the next line to read the end time
             $end = $content[++$i]
             # Add time entry to the current entry
-            $timeEntry = @{
+            $timeEntry = [ordered]@{
                 "proj"  = $currentProj
                 "start" = $start
                 "end"   = $end
@@ -45,8 +45,15 @@ for ($i = 0; $i -lt $content.Count; $i++) {
     }
 }
 
-# Convert the result to JSON format
-$jsonResult = $result | ConvertTo-Json -Depth 100
+# Convert the result to custom objects
+$jsonObjects = @()
+foreach ($entry in $result) {
+    $object = [PSCustomObject]$entry
+    $jsonObjects += $object
+}
+
+# Convert the custom objects to JSON format
+$jsonResult = $jsonObjects | ConvertTo-Json -Depth 100
 
 Write-Host "Converted JSON:"
 $jsonResult
