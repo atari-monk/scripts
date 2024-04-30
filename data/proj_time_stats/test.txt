@@ -1,0 +1,16 @@
+ID: 1
+Project a Sum: 1 hours 0 minutes
+Total Sum: 1 hours 0 minutes
+
+
+ID: 2
+Project b Sum: 1 hours 0 minutes
+Project a Sum: 1 hours 0 minutes
+Total Sum: 2 hours 0 minutes
+
+
+Total Sum of All IDs: 3 hours 0 minutes
+Project Sums for All IDs:
+Project b Sum: 1 hours 0 minutes
+Project a Sum: 2 hours 0 minutes
+

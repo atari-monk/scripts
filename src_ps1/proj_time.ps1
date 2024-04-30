@@ -1,12 +1,12 @@
 # Read JSON data from file
-$jsonData = Get-Content -Raw -Path "../data/proj_time_json/03_2024.json" | ConvertFrom-Json
+$jsonData = Get-Content -Raw -Path "../data/proj_time_json/03_2024_test.json" | ConvertFrom-Json
 
 # Initialize variables to store sums
 $totalSum = [timespan]::Zero
 $projectSums = @{}
 
 # Output file path
-$outputFilePath = "../data/proj_time_stats/03_2024.txt"  # Specify your desired output file path here
+$outputFilePath = "../data/proj_time_stats/03_2024_test.txt"  # Specify your desired output file path here
 
 # Loop through each ID
 foreach ($obj in $jsonData) {
@@ -18,6 +18,12 @@ foreach ($obj in $jsonData) {
         # Calculate the duration
         $startTime = [datetime]::ParseExact($timeEntry.start, 'HH:mm', $null)
         $endTime = [datetime]::ParseExact($timeEntry.end, 'HH:mm', $null)
+        
+        if ($endTime -lt $startTime) {
+            # Add 24 hours to end time
+            $endTime = $endTime.AddDays(1)
+        }
+
         $duration = $endTime - $startTime
 
         # Update total sum
