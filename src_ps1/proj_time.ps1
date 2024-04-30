@@ -1,4 +1,4 @@
-$fileName = 'test'
+$fileName = '04_2024'
 # Read JSON data from file
 $jsonData = Get-Content -Raw -Path "../data/proj_time_json/$fileName.json" | ConvertFrom-Json
 

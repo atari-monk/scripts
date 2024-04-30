@@ -1,6 +1,7 @@
+$fileName = '04_2024'
 # Specify the input and output file paths
-$inFilePath = "../data/proj_time_txt/03_2024.txt"
-$outFilePath = "../data/proj_time_json/03_2024.json"
+$inFilePath = "../data/proj_time_txt/$fileName.txt"
+$outFilePath = "../data/proj_time_json/$fileName.json"
 
 Write-Host "Input file path: $inFilePath"
 Write-Host "Output file path: $outFilePath"

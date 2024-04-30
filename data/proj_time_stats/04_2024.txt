@@ -1,0 +1,175 @@
+ID: 1
+Project micro_engine Sum: 1 hours 5 minutes
+Project nestjs_tutorial Sum: 0 hours 73 minutes
+Total Sum: 2 hours 18 minutes
+
+
+ID: 2
+Project micro_engine Sum: 0 hours 47 minutes
+Project nestjs_tutorial Sum: 1 hours 48 minutes
+Total Sum: 2 hours 35 minutes
+
+
+ID: 3
+Project nestjs_tutorial Sum: 0 hours 59 minutes
+Project micro_engine Sum: 2 hours 70 minutes
+Total Sum: 4 hours 9 minutes
+
+
+ID: 4
+Project micro_engine Sum: 1 hours 30 minutes
+Total Sum: 1 hours 30 minutes
+
+
+ID: 5
+Project micro_engine Sum: 4 hours 101 minutes
+Total Sum: 5 hours 41 minutes
+
+
+ID: 6
+Project micro_engine Sum: 1 hours 7 minutes
+Total Sum: 1 hours 7 minutes
+
+
+ID: 7
+Project micro_engine Sum: 1 hours 62 minutes
+Total Sum: 2 hours 2 minutes
+
+
+ID: 8
+Project laptop_sun_protection Sum: 7 hours 45 minutes
+Project micro_engine Sum: 1 hours 33 minutes
+Total Sum: 9 hours 18 minutes
+
+
+ID: 9
+Project micro_engine Sum: 3 hours 68 minutes
+Project 3dunity_portfolio Sum: 1 hours 12 minutes
+Project nestjs_tutorial Sum: 1 hours 11 minutes
+Total Sum: 6 hours 31 minutes
+
+
+ID: 10
+Project samples Sum: 0 hours 30 minutes
+Project micro_engine Sum: 2 hours 53 minutes
+Project nestjs_tutorial Sum: 0 hours 19 minutes
+Total Sum: 3 hours 42 minutes
+
+
+ID: 11
+Project nestjs_tutorial Sum: 1 hours 11 minutes
+Project micro_engine Sum: 4 hours 50 minutes
+Total Sum: 6 hours 1 minutes
+
+
+ID: 12
+Project laptop_sun_protection Sum: 1 hours 0 minutes
+Project micro_engine Sum: 2 hours 56 minutes
+Total Sum: 3 hours 56 minutes
+
+
+ID: 13
+Project micro_engine Sum: 2 hours 105 minutes
+Project notes Sum: 3 hours 27 minutes
+Total Sum: 7 hours 12 minutes
+
+
+ID: 14
+Project micro_engine Sum: 1 hours 2 minutes
+Total Sum: 1 hours 2 minutes
+
+
+ID: 15
+Project micro_engine Sum: 0 hours 81 minutes
+Project notes Sum: 4 hours 12 minutes
+Total Sum: 5 hours 33 minutes
+
+
+ID: 16
+Project notes Sum: 4 hours 47 minutes
+Total Sum: 4 hours 47 minutes
+
+
+ID: 17
+Project notes Sum: 3 hours 112 minutes
+Total Sum: 4 hours 52 minutes
+
+
+ID: 18
+Project notes_app Sum: 1 hours 37 minutes
+Total Sum: 1 hours 37 minutes
+
+
+ID: 19
+Project notes Sum: 1 hours 41 minutes
+Total Sum: 1 hours 41 minutes
+
+
+ID: 20
+Project notes_app Sum: 4 hours 50 minutes
+Total Sum: 4 hours 50 minutes
+
+
+ID: 21
+Project notes_app Sum: 3 hours 22 minutes
+Total Sum: 3 hours 22 minutes
+
+
+ID: 22
+Project notes_app Sum: 4 hours 100 minutes
+Total Sum: 5 hours 40 minutes
+
+
+ID: 23
+Project notes_app Sum: 4 hours 75 minutes
+Total Sum: 5 hours 15 minutes
+
+
+ID: 24
+Project notes_app Sum: 5 hours 153 minutes
+Total Sum: 7 hours 33 minutes
+
+
+ID: 25
+Project micro_engine Sum: 1 hours 18 minutes
+Project notes_app Sum: 1 hours 110 minutes
+Total Sum: 4 hours 8 minutes
+
+
+ID: 26
+Project notes_app Sum: 0 hours 111 minutes
+Total Sum: 1 hours 51 minutes
+
+
+ID: 27
+Project notes_app Sum: 3 hours 50 minutes
+Total Sum: 3 hours 50 minutes
+
+
+ID: 28
+Project micro_engine Sum: 2 hours 46 minutes
+Project notes_app Sum: 0 hours 55 minutes
+Total Sum: 3 hours 41 minutes
+
+
+ID: 29
+Project micro_engine Sum: 0 hours 73 minutes
+Project notes_app Sum: 1 hours 35 minutes
+Total Sum: 2 hours 48 minutes
+
+
+ID: 30
+Project notes_app Sum: 4 hours 43 minutes
+Total Sum: 4 hours 43 minutes
+
+
+Total Sum of All IDs: 123 hours 15 minutes
+Project Sums for All IDs:
+Project laptop_sun_protection Sum: 8 hours 45 minutes
+Project micro_engine Sum: 43 hours 7 minutes
+Project samples Sum: 0 hours 30 minutes
+Project 3dunity_portfolio Sum: 1 hours 12 minutes
+Project nestjs_tutorial Sum: 6 hours 41 minutes
+Project notes Sum: 18 hours 59 minutes
+Project notes_app Sum: 44 hours 1 minutes
+
