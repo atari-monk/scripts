@@ -1,14 +1,15 @@
+$fileName = 'test'
 # Read JSON data from file
-$jsonData = Get-Content -Raw -Path "../data/proj_time_json/test.json" | ConvertFrom-Json
+$jsonData = Get-Content -Raw -Path "../data/proj_time_json/$fileName.json" | ConvertFrom-Json
 
-# Initialize variables to store sums
+# Initialize variables to store total sum
 $totalHours = 0
 $totalMinutes = 0
 
 $projectSums = @{}
 
 # Output file path
-$outputFilePath = "../data/proj_time_stats/test.txt"  # Specify your desired output file path here
+$outputFilePath = "../data/proj_time_stats/$fileName.txt"  # Specify your desired output file path here
 
 # Loop through each ID
 foreach ($obj in $jsonData) {
@@ -53,23 +54,12 @@ foreach ($obj in $jsonData) {
         # Update total sum for all IDs
         $totalHours += $hours
         $totalMinutes += $minutes
+    }
 
-        # Update project sums for all IDs
-        if (-not $projectSums.ContainsKey($proj)) {
-            $projectSums[$proj] = [pscustomobject]@{
-                Hours = $hours
-                Minutes = $minutes
-            }
-        } else {
-            $projectSums[$proj].Hours += $hours
-            $projectSums[$proj].Minutes += $minutes
-        }
-
-        # Check if minutes overflow to hours for the total sum
-        if ($totalMinutes -ge 60) {
-            $totalHours += 1
-            $totalMinutes -= 60
-        }
+    # Check if minutes overflow to hours for the current ID
+    if ($objMinutes -ge 60) {
+        $objHours += [math]::Floor($objMinutes / 60)
+        $objMinutes = $objMinutes % 60
     }
 
     # Output sum for the current ID
@@ -82,6 +72,28 @@ foreach ($obj in $jsonData) {
 
     # Write output to file
     $output | Out-File -FilePath $outputFilePath -Append -Encoding utf8
+
+    # Update project sums for all IDs
+    foreach ($projSum in $objProjectSums.GetEnumerator()) {
+        $proj = $projSum.Key
+        $projDuration = $projSum.Value
+
+        if (-not $projectSums.ContainsKey($proj)) {
+            $projectSums[$proj] = [pscustomobject]@{
+                Hours = $projDuration.Hours
+                Minutes = $projDuration.Minutes
+            }
+        } else {
+            $projectSums[$proj].Hours += $projDuration.Hours
+            $projectSums[$proj].Minutes += $projDuration.Minutes
+        }
+    }
+}
+
+# Check if minutes overflow to hours for the total sum
+if ($totalMinutes -ge 60) {
+    $totalHours += [math]::Floor($totalMinutes / 60)
+    $totalMinutes = $totalMinutes % 60
 }
 
 # Output sum for all IDs
@@ -89,7 +101,14 @@ $output = "Total Sum of All IDs: $totalHours hours $totalMinutes minutes`r`n"
 $output += "Project Sums for All IDs:`r`n"
 foreach ($projSum in $projectSums.GetEnumerator()) {
     $projDuration = $projSum.Value
-    $output += "Project $($projSum.Name) Sum: $($projDuration.Hours) hours $($projDuration.Minutes) minutes`r`n"
+
+    # Check if minutes overflow to hours for the total sum of projects
+    if ($projDuration.Minutes -ge 60) {
+        $projDuration.Hours += [math]::Floor($projDuration.Minutes / 60)
+        $projDuration.Minutes = $projDuration.Minutes % 60
+    }
+
+    $output += "Project $($projSum.Key) Sum: $($projDuration.Hours) hours $($projDuration.Minutes) minutes`r`n"
 }
 
 # Write output to file

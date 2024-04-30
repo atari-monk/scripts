@@ -1,12 +1,12 @@
 ID: 1
-Project a Sum: 1 hours 0 minutes
-Total Sum: 1 hours 0 minutes
+Project a Sum: 1 hours 30 minutes
+Total Sum: 1 hours 30 minutes
 
 
 ID: 2
 Project b Sum: 1 hours 0 minutes
-Project a Sum: 1 hours 0 minutes
-Total Sum: 2 hours 0 minutes
+Project a Sum: 1 hours 30 minutes
+Total Sum: 2 hours 30 minutes
 
 
 ID: 3
@@ -15,10 +15,10 @@ Project c Sum: 1 hours 0 minutes
 Total Sum: 2 hours 0 minutes
 
 
-Total Sum of All IDs: 5 hours 0 minutes
+Total Sum of All IDs: 6 hours 0 minutes
 Project Sums for All IDs:
 Project b Sum: 1 hours 0 minutes
 Project d Sum: 1 hours 0 minutes
 Project c Sum: 1 hours 0 minutes
-Project a Sum: 2 hours 0 minutes
+Project a Sum: 3 hours 0 minutes
 
