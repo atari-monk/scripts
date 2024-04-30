@@ -1,0 +1,81 @@
+id=21
+notes
+12:30
+13:00
+micro_engine
+13:00
+14:20
+micro_engine
+14:20
+16:30
+Sending cv
+19:00
+20:00
+react_tutorial
+21:30
+22:30
+id=22
+react_tutorial
+01:00
+micro_engine
+01:20
+id=23
+Portfolio page
+01:00
+react_tutorial
+01:00
+Inventory page
+01:00
+id=26
+micro_engine
+18:36
+20:11
+micro_engine
+22:05
+22:51
+id=27
+micro_engine
+11:53
+12:56
+micro_engine
+13:33
+15:20
+micro_engine, scripts
+17:30
+19:38
+micro_engine, scripts
+23:06
+00:38
+id=28
+scripts
+11:14
+13:54
+nestjs tutorial
+14:48
+15:51
+notes
+16:52
+17:45
+micro_engine
+18:18
+20:46
+id=29
+nestjs tutorial
+11:33
+12:20
+micro_engine
+13:21
+15:05
+micro_engine
+16:04
+17:29
+react tutorial
+18:06
+19:45
+id=30
+nestjs-tutorial
+14:30
+17:16
+micro_engine
+19:04
+21:05
