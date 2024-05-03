@@ -44,3 +44,12 @@ export function youtubeLinkTemplate(line: string): any {
     dateTime: new Date().toISOString(),
   }
 }
+
+export function youtubeLinkTemplate_Markdown(line: string): any {
+  return {
+    indexTitle: '',
+    question: '',
+    answer: `${line}`,
+    dateTime: new Date().toISOString(),
+  }
+}

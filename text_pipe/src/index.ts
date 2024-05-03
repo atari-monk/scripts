@@ -1,13 +1,13 @@
 import {
   applyTemplate,
   loadTextFile,
-  saveToFile,
   saveToJson,
   youtubeLinkTemplate,
+  youtubeLinkTemplate_Markdown,
 } from './function'
-const inputFilePath = './../data/tutorial.txt'
-const outputFilePath = './../data/tutorial.json'
+const inputFilePath = './../data/link/input.txt'
+const outputFilePath = './../data/link/output.json'
 const lines = loadTextFile(inputFilePath, false)
-const results = applyTemplate(lines, youtubeLinkTemplate)
+const results = applyTemplate(lines, youtubeLinkTemplate_Markdown)
 saveToJson(outputFilePath, results)
 console.log('Processing complete. Results saved to', outputFilePath)
