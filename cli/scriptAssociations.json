@@ -78,5 +78,19 @@
     "ScriptFile": "run_notes.ps1",
     "Title": "Notes",
     "Order": 11
+  },
+  {
+    "Command": "football_server",
+    "ScriptFolder": "C:\\atari-monk\\code\\scripts\\src_ps1",
+    "ScriptFile": "run_football_server.ps1",
+    "Title": "Football Server",
+    "Order": 12
+  },
+  {
+    "Command": "football_client",
+    "ScriptFolder": "C:\\atari-monk\\code\\scripts\\src_ps1",
+    "ScriptFile": "run_football_client.ps1",
+    "Title": "Football Client",
+    "Order": 13
   }
 ]
