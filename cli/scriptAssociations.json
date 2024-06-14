@@ -99,5 +99,12 @@
     "ScriptFile": "run_football_client.ps1",
     "Title": "Football Client",
     "Order": 14
+  },
+  {
+    "Command": "football_client2",
+    "ScriptFolder": "C:\\atari-monk\\code\\scripts\\src_ps1",
+    "ScriptFile": "run_football_client2.ps1",
+    "Title": "Football Client 2",
+    "Order": 15
   }
 ]
