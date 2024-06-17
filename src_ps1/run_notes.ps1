@@ -1,15 +1,16 @@
-$clientPath = "C:\atari-monk\code\notes_app\editor\build\index.html"
+#$editorPath = "C:\atari-monk\code\notes_app\editor\build\index.html"
 $readerPath = "C:\atari-monk\code\notes_app\reader\build\index.html"
 $serverPath = "C:\atari-monk\code\notes_app\server\build\server.js"
 
-if (Test-Path $clientPath -PathType Leaf) {
-    Start-Process $clientPath
-}
-else {
-    Write-Host "The client file does not exist: $clientPath"
-}
+# if (Test-Path $editorPath -PathType Leaf) {
+#     Start-Process $editorPath
+# }
+# else {
+#     Write-Host "The editor file does not exist: $editorPath"
+# }
 
 if (Test-Path $readerPath -PathType Leaf) {
+    Start-Process $readerPath
     Start-Process $readerPath
 }
 else {

@@ -1,5 +1,3 @@
-$path = "C:\atari-monk\code\micro-engine\football_single_desktop"
+$path = "C:\atari-monk\code\micro-engine\football_single_desktop\build"
 cd $path
-npm run build
-cd 'build'
 .\serve.py

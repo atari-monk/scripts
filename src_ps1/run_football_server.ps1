@@ -1,7 +1,5 @@
-$path = "C:\atari-monk\code\micro-engine\server"
+$path = "C:\atari-monk\code\micro-engine\server\build"
 cd $path
-npm run build
-cd 'build'
 node index.js | ForEach-Object {
     $_
     $host.ui.RawUI.WindowTitle = 'Football Server'

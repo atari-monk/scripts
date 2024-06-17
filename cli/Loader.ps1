@@ -1,5 +1,5 @@
 $scriptAssociations = @{}
-$jsonData = Get-Content -Raw -Path "scriptAssociations.json" | ConvertFrom-Json
+$jsonData = Get-Content -Raw -Path "data.json" | ConvertFrom-Json
 $jsonData | ForEach-Object {
     $scriptAssociations[$_.Command] = $_
 }

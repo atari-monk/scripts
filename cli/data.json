@@ -80,31 +80,31 @@
     "Order": 11
   },
   {
+    "Command": "football_editor",
+    "ScriptFolder": "C:\\atari-monk\\code\\scripts\\src_ps1",
+    "ScriptFile": "run_football_editor.ps1",
+    "Title": "Football Editor",
+    "Order": 12
+  },
+  {
     "Command": "football",
     "ScriptFolder": "C:\\atari-monk\\code\\scripts\\src_ps1",
     "ScriptFile": "run_football_desktop.ps1",
     "Title": "Football Single Desktop",
-    "Order": 12
+    "Order": 13
   },
   {
     "Command": "football_server",
     "ScriptFolder": "C:\\atari-monk\\code\\scripts\\src_ps1",
     "ScriptFile": "run_football_server.ps1",
     "Title": "Football Server",
-    "Order": 13
+    "Order": 14
   },
   {
     "Command": "football_client",
     "ScriptFolder": "C:\\atari-monk\\code\\scripts\\src_ps1",
     "ScriptFile": "run_football_client.ps1",
     "Title": "Football Client",
-    "Order": 14
-  },
-  {
-    "Command": "football_client2",
-    "ScriptFolder": "C:\\atari-monk\\code\\scripts\\src_ps1",
-    "ScriptFile": "run_football_client2.ps1",
-    "Title": "Football Client 2",
     "Order": 15
   }
 ]
