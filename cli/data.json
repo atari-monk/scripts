@@ -106,5 +106,12 @@
     "ScriptFile": "run_football_client.ps1",
     "Title": "Football Client",
     "Order": 15
+  },
+  {
+    "Command": "proto_lab",
+    "ScriptFolder": "C:\\atari-monk\\code\\scripts\\src_ps1",
+    "ScriptFile": "run_proto_lab.ps1",
+    "Title": "Proto Lab",
+    "Order": 16
   }
 ]
