@@ -87,17 +87,17 @@
     "Order": 12
   },
   {
-    "Command": "football_client",
+    "Command": "client",
     "ScriptFolder": "C:\\atari-monk\\code\\scripts\\src_ps1",
-    "ScriptFile": "run_football_client.ps1",
-    "Title": "Football Client",
+    "ScriptFile": "run_micro_engine_client.ps1",
+    "Title": "micro_engine client",
     "Order": 13
   },
   {
-    "Command": "football_server",
+    "Command": "server",
     "ScriptFolder": "C:\\atari-monk\\code\\scripts\\src_ps1",
-    "ScriptFile": "run_football_server.ps1",
-    "Title": "Football Server",
+    "ScriptFile": "run_micro_engine_server.ps1",
+    "Title": "micro_engine server",
     "Order": 14
   }
 ]
