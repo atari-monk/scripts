@@ -1,0 +1,13 @@
+{
+  "exclude_folders": [".git", "node_modules", "build", "__pycache__"],
+  "files": [
+    {
+      "description": "api of config",
+      "isOn": true,
+      "printStructure": true,
+      "printContent": true,
+      "input_folder": "C:/atari-monk/code/football_engine/libs/engine_api/src/config",
+      "output_file": "C:/atari-monk/docs/football/config_api.txt"
+    }
+  ]
+}
