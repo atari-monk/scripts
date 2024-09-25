@@ -99,5 +99,12 @@
     "ScriptFile": "run_micro_engine_server.ps1",
     "Title": "micro_engine server",
     "Order": 14
+  },
+  {
+    "Command": "football_engine_client",
+    "ScriptFolder": "C:\\atari-monk\\code\\scripts\\src_ps1",
+    "ScriptFile": "run_football_engine_client.ps1",
+    "Title": "football_engine client",
+    "Order": 15
   }
 ]
