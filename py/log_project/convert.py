@@ -1,55 +1,77 @@
 import os
+import re
 from datetime import datetime
 
-# Constants
-INPUT_FOLDER = 'C:/atari-monk/code/apollo/content/Database'  # Update to your input folder
-INPUT_FILE = 'log_project.txt'  # Replace with your actual log file name
-OUTPUT_FILE = 'log_project.md'
+# Constants for folder and file names
+LOG_FOLDER = "C:/atari-monk/code/apollo/content/Database"  # Replace with your log folder path
+LOG_FILE = "log_project.txt"  # Replace with your log file name
+OUTPUT_FILE = "log_project.md"  # Output file name
 
-def convert_log_format(input_file, output_file):
-    with open(input_file, 'r') as file:
-        lines = file.readlines()
+def convert_log_to_markdown(log_lines):
+    # Initialize a dictionary to hold logs grouped by day
+    logs_by_day = {}
 
-    # Initialize a dictionary to store project data
-    project_data = {}
+    # Process each log line
+    for line in log_lines:
+        match = re.match(r'(\d{4}-\d{2}-\d{2}) (\d{2}:\d{2}:\d{2}) (.+) \((active|off)\)', line.strip())
+        if match:
+            date_str, time_str, project, status = match.groups()
+            date = datetime.strptime(date_str, "%Y-%m-%d").date()
 
-    # Parse log lines directly
-    for line in lines:
-        if line.strip():  # Check if the line is not empty
-            try:
-                date_time_str, project_status = line.strip().split(' ', 1)
-                project_name, status = project_status.rsplit(' ', 1)
+            # Add to the logs dictionary
+            if date not in logs_by_day:
+                logs_by_day[date] = []
 
-                # Convert to datetime object
-                date_time = datetime.strptime(date_time_str, '%Y-%m-%d %H:%M:%S')
-                year = date_time.year
-                month = date_time.month
-                time = date_time.strftime('%H:%M')
+            logs_by_day[date].append((time_str, project, status))
 
-                if project_name not in project_data:
-                    project_data[project_name] = []
-                
-                # Append start/end time based on status
-                if status == '(active)':
-                    project_data[project_name].append(f"{time} - ")
-                else:
-                    if project_data[project_name] and project_data[project_name][-1].endswith('- '):
-                        project_data[project_name][-1] += time
+    # Create Markdown output
+    markdown_output = "# Log Project\n\n"
 
-            except ValueError as e:
-                print(f"Error parsing line: {line.strip()}. Error: {e}")
+    for date in sorted(logs_by_day.keys()):
+        month = date.strftime("%Y.%m")
+        day = date.day
 
-    # Generate output
-    output_lines = [f"# Log Project\n\n## {year}\n\n# {month}\n"]
-    for i, (project_name, times) in enumerate(project_data.items(), start=1):
-        time_ranges = ''.join(times).strip()
-        output_lines.append(f"{i}. {project_name}\n\n{time_ranges.strip(', ')}\n")
+        markdown_output += f"## {month}\n\n### {day}\n\n"
+        
+        # Store projects with timestamps
+        projects = {}
+        for time_str, project, status in logs_by_day[date]:
+            if project not in projects:
+                projects[project] = []
+            if status == "active":
+                projects[project].append(time_str)
+            elif status == "off":
+                if project in projects:
+                    projects[project][-1] += f" - {time_str}"
 
-    # Write output to file
-    with open(output_file, 'w') as file:
-        file.writelines(output_lines)
+        for idx, (project, timestamps) in enumerate(projects.items(), 1):
+            time_range = timestamps[0] if len(timestamps) == 1 else f"{timestamps[0]} - {timestamps[-1].split(' - ')[-1]}"
+            markdown_output += f"{idx}. {project}\n\n{time_range}\n\n"
 
-if __name__ == "__main__":
-    input_file_path = os.path.join(INPUT_FOLDER, INPUT_FILE)
-    convert_log_format(input_file_path, OUTPUT_FILE)
-    print(f"Converted log has been saved to {OUTPUT_FILE}.")
+    return markdown_output.strip()
+
+def read_log_file(file_path):
+    """Read log lines from the specified file."""
+    with open(file_path, 'r') as file:
+        return file.readlines()
+
+def write_output_file(output_path, content):
+    """Write the Markdown content to the specified output file."""
+    with open(output_path, 'w') as file:
+        file.write(content)
+
+# Load log lines from the specified file
+log_file_path = os.path.join(LOG_FOLDER, LOG_FILE)
+log_lines = read_log_file(log_file_path)
+
+# Convert to Markdown format
+markdown_result = convert_log_to_markdown(log_lines)
+
+# Print the Markdown output to console
+print(markdown_result)
+
+# Write the Markdown output to a file
+output_file_path = os.path.join(LOG_FOLDER, OUTPUT_FILE)
+write_output_file(output_file_path, markdown_result)
+
+print(f"Output written to {output_file_path}")
