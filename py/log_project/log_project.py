@@ -4,11 +4,10 @@ from datetime import datetime
 
 # Constants
 DATABASE_FOLDER = "C:/atari-monk/code/apollo/content/Database"
-LOG_FILE_NAME = "log_project.md"
+LOG_FILE_NAME = "log_project.txt"
 PROJECT_LIST_NAME = "projects.json"
 STATE_FILE_NAME = "state.json"
 DATE_FORMAT = "%Y-%m-%d %H:%M:%S"
-INITIAL_CONTENT = "# Log Project\n"
 
 # Combine folder and file names
 LOG_FILE_PATH = os.path.join(DATABASE_FOLDER, LOG_FILE_NAME)
@@ -21,7 +20,7 @@ def initialize_log_file():
     os.makedirs(DATABASE_FOLDER, exist_ok=True)  # Ensure the folder exists
     if not os.path.exists(LOG_FILE_PATH):
         with open(LOG_FILE_PATH, 'w') as file:
-            file.write(INITIAL_CONTENT)
+            file.write()
         print(f"Log file created: {LOG_FILE_PATH}")
     else:
         print(f"Log file already exists: {LOG_FILE_PATH}")
