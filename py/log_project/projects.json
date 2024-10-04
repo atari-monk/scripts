@@ -6,5 +6,9 @@
   "Scripts": {
     "description": "Scripts.",
     "repository": "scripts"
+  },
+  "Diy": {
+    "description": "Diy.",
+    "repository": ""
   }
 }
