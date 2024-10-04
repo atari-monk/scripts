@@ -65,17 +65,23 @@ def save_state(state):
     with open(STATE_FILE_PATH, 'w') as file:
         json.dump(state, file)
 
-# Log the project entry (either start or end)
-def log_project_entry(project_name, is_start):
+# Log the project entry (either active or off)
+def log_project_entry(project_name, action):
     """Log the project start or end entry to the markdown file."""
     timestamp = datetime.now().strftime(DATE_FORMAT)
-    action = "start" if is_start else "end"
     entry = f"{timestamp} {project_name} ({action})\n"
     
     with open(LOG_FILE_PATH, 'a') as file:
         file.write(entry)
     
     print(f"Logged: {entry.strip()}")
+
+def check_active_project(state):
+    """Check if any project is currently active."""
+    for project, status in state.items():
+        if status == "active":
+            return project
+    return None
 
 def main():
     """Main function to handle project logging."""
@@ -89,19 +95,26 @@ def main():
     # Load the internal state
     state = load_state()
 
+    # Check if any project is currently active
+    active_project = check_active_project(state)
+
     # Get and validate the project name
     project_name = validate_project_name(project_list)
     
-    # Determine if the project is starting or ending
-    if project_name not in state:
-        is_start = True  # Start the project if it's not in the state
-        state[project_name] = 'start'
-    else:
-        is_start = state[project_name] == 'start'
-        state[project_name] = 'end' if is_start else 'start'  # Toggle the state
+    # Handle the project state transitions
+    project_state = state.get(project_name, "off")  # Default to "off" if not in the state
 
-    # Log the entry
-    log_project_entry(project_name, is_start)
+    if project_state == "off":
+        if active_project:
+            print(f"Error: Project '{active_project}' is currently active. Please stop it before starting a new project.")
+        else:
+            action = "active"
+            state[project_name] = "active"
+            log_project_entry(project_name, action)
+    elif project_state == "active":
+        action = "off"
+        state[project_name] = "off"
+        log_project_entry(project_name, action)
 
     # Save the updated state
     save_state(state)
