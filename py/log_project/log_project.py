@@ -7,7 +7,7 @@ DATABASE_FOLDER = "C:/atari-monk/code/apollo/content/Database"
 LOG_FILE_NAME = "log_project.txt"
 PROJECT_LIST_NAME = "projects.json"
 STATE_FILE_NAME = "state.json"
-DATE_FORMAT = "%Y-%m-%d %H:%M:%S"
+DATE_FORMAT = "%Y-%m-%d %H:%M"
 
 # Combine folder and file names
 LOG_FILE_PATH = os.path.join(DATABASE_FOLDER, LOG_FILE_NAME)

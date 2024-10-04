@@ -13,7 +13,8 @@ def convert_log_to_markdown(log_lines):
 
     # Process each log line
     for line in log_lines:
-        match = re.match(r'(\d{4}-\d{2}-\d{2}) (\d{2}:\d{2}:\d{2}) (.+) \((active|off)\)', line.strip())
+        # Adjust regex to match time without seconds
+        match = re.match(r'(\d{4}-\d{2}-\d{2}) (\d{2}:\d{2}) (.+) \((active|off)\)', line.strip())
         if match:
             date_str, time_str, project, status = match.groups()
             date = datetime.strptime(date_str, "%Y-%m-%d").date()
@@ -39,14 +40,21 @@ def convert_log_to_markdown(log_lines):
             if project not in projects:
                 projects[project] = []
             if status == "active":
-                projects[project].append(time_str)
+                projects[project].append([time_str])  # Start a new interval
             elif status == "off":
-                if project in projects:
-                    projects[project][-1] += f" - {time_str}"
+                if projects[project] and isinstance(projects[project][-1], list):
+                    projects[project][-1].append(time_str)  # Close the interval
 
-        for idx, (project, timestamps) in enumerate(projects.items(), 1):
-            time_range = timestamps[0] if len(timestamps) == 1 else f"{timestamps[0]} - {timestamps[-1].split(' - ')[-1]}"
-            markdown_output += f"{idx}. {project}\n\n{time_range}\n\n"
+        for idx, (project, intervals) in enumerate(projects.items(), 1):
+            time_ranges = []
+            for interval in intervals:
+                if len(interval) == 2:
+                    time_ranges.append(f"{interval[0]} - {interval[1]}")
+                else:  # Should not happen, but just in case
+                    time_ranges.append(interval[0])
+
+            time_range_output = ', '.join(time_ranges)
+            markdown_output += f"{idx}. {project}\n\n{time_range_output}\n\n"
 
     return markdown_output.strip()
 
