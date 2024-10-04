@@ -12,18 +12,32 @@ def convert_log_to_markdown(log_lines):
     logs_by_day = {}
 
     # Process each log line
+    last_active_date = None  # Track the last date a project was active
+    
     for line in log_lines:
         # Adjust regex to match time without seconds
         match = re.match(r'(\d{4}-\d{2}-\d{2}) (\d{2}:\d{2}) (.+) \((active|off)\)', line.strip())
         if match:
             date_str, time_str, project, status = match.groups()
+            time = datetime.strptime(time_str, "%H:%M").time()
             date = datetime.strptime(date_str, "%Y-%m-%d").date()
+
+            # If the task is marked as "off" and the time is after midnight
+            if status == "off" and time < datetime.strptime("06:00", "%H:%M").time():
+                # Check if there was an active project on the previous day
+                if last_active_date is not None:
+                    # Assign the task to the previous day's date
+                    date = last_active_date
 
             # Add to the logs dictionary
             if date not in logs_by_day:
                 logs_by_day[date] = []
 
             logs_by_day[date].append((time_str, project, status))
+
+            # Update the last active date when a project becomes active
+            if status == "active":
+                last_active_date = date
 
     # Create Markdown output
     markdown_output = "# Log Project\n\n"
