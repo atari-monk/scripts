@@ -1,8 +1,10 @@
 import os
 import json
+import subprocess  # Import subprocess module
 from datetime import datetime
 
 # Constants
+CONVERS_SCRIPT_PATH = "convert.py"
 DATABASE_FOLDER = "C:/atari-monk/code/apollo/content/Database"
 LOG_FILE_NAME = "log_project.txt"
 PROJECT_LIST_NAME = "projects.json"
@@ -20,7 +22,7 @@ def initialize_log_file():
     os.makedirs(DATABASE_FOLDER, exist_ok=True)  # Ensure the folder exists
     if not os.path.exists(LOG_FILE_PATH):
         with open(LOG_FILE_PATH, 'w') as file:
-            file.write()
+            file.write("")  # Ensure there is an empty string written to the file
         print(f"Log file created: {LOG_FILE_PATH}")
     else:
         print(f"Log file already exists: {LOG_FILE_PATH}")
@@ -74,6 +76,13 @@ def log_project_entry(project_name, action):
         file.write(entry)
     
     print(f"Logged: {entry.strip()}")
+    
+    # Run the convert.py script after logging
+    try:
+        subprocess.run(["python",CONVERS_SCRIPT_PATH], check=True)  # Update the path to convert.py as needed
+        print("Successfully ran convert.py.")
+    except subprocess.CalledProcessError as e:
+        print(f"Error running convert.py: {e}")
 
 def check_active_project(state):
     """Check if any project is currently active."""
