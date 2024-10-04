@@ -106,5 +106,12 @@
     "ScriptFile": "run_football_engine_client.ps1",
     "Title": "football_engine client",
     "Order": 15
+  },
+  {
+    "Command": "log_project",
+    "ScriptFolder": "C:\\atari-monk\\code\\scripts\\py",
+    "ScriptFile": "log_project.py",
+    "Title": "Log Project",
+    "Order": 16
   }
 ]
