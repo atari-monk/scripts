@@ -2,5 +2,9 @@
   "Morpheus": {
     "description": "Typescript game project.",
     "repository": "ts-engine-nx"
+  },
+  "Scripts": {
+    "description": "Scripts.",
+    "repository": "scripts"
   }
 }

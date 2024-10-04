@@ -3,15 +3,22 @@ import json
 from datetime import datetime
 
 # Constants
-LOG_FILE_PATH = "project_log.md"
-PROJECT_LIST_PATH = "projects.json"
+DATABASE_FOLDER = "C:/atari-monk/code/apollo/content/Database"
+LOG_FILE_NAME = "log_project.md"
+PROJECT_LIST_NAME = "projects.json"
+STATE_FILE_NAME = "state.json"
 DATE_FORMAT = "%Y-%m-%d %H:%M:%S"
 INITIAL_CONTENT = "# Log Project\n"
-STATE_FILE = "state.json"
+
+# Combine folder and file names
+LOG_FILE_PATH = os.path.join(DATABASE_FOLDER, LOG_FILE_NAME)
+PROJECT_LIST_PATH = PROJECT_LIST_NAME
+STATE_FILE_PATH = STATE_FILE_NAME
 
 # Initialize the log file if it doesn't exist
 def initialize_log_file():
     """Check if the log file exists; if not, create it with initial content."""
+    os.makedirs(DATABASE_FOLDER, exist_ok=True)  # Ensure the folder exists
     if not os.path.exists(LOG_FILE_PATH):
         with open(LOG_FILE_PATH, 'w') as file:
             file.write(INITIAL_CONTENT)
@@ -42,16 +49,20 @@ def validate_project_name(project_list):
 # Load or initialize internal state (whether a project is starting or ending)
 def load_state():
     """Load the project state from the state JSON file or initialize it."""
-    if os.path.exists(STATE_FILE):
-        with open(STATE_FILE, 'r') as file:
-            return json.load(file)
+    if os.path.exists(STATE_FILE_PATH):
+        try:
+            with open(STATE_FILE_PATH, 'r') as file:
+                return json.load(file) or {}  # Return empty dict if file is empty
+        except json.JSONDecodeError:
+            print(f"Warning: {STATE_FILE_PATH} is empty or corrupted. Initializing new state.")
+            return {}
     else:
         return {}
 
 # Save the current state to a file
 def save_state(state):
     """Save the internal state back to the state JSON file."""
-    with open(STATE_FILE, 'w') as file:
+    with open(STATE_FILE_PATH, 'w') as file:
         json.dump(state, file)
 
 # Log the project entry (either start or end)
