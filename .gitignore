@@ -5,3 +5,4 @@ execution.log
 build
 node_modules
 mp3/downloads
+py/log_project/state.json
