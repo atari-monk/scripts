@@ -2,7 +2,7 @@ import time
 import sys
 from pathlib import Path
 from datetime import datetime
-from typing import List, Tuple
+from typing import List
 
 def load_tasks(file_path: Path) -> List[str]:
     """Load tasks from a text file, one per line."""
@@ -13,16 +13,17 @@ def load_tasks(file_path: Path) -> List[str]:
         tasks = [line.strip() for line in f if line.strip()]
     return tasks
 
-def save_log(log_path: Path, timestamps: List[Tuple[str, str]]) -> None:
-    """Save timestamps to a log file."""
-    log_path.parent.mkdir(parents=True, exist_ok=True)  # Ensure directory exists
-    
+def init_log_file(log_path: Path) -> None:
+    """Initialize the log file with headers."""
+    log_path.parent.mkdir(parents=True, exist_ok=True)
     with log_path.open('w', encoding='utf-8') as f:
         f.write("Task Log with Timestamps\n")
         f.write("="*30 + "\n")
-        for task, timestamp in timestamps:
-            f.write(f"{task} -> {timestamp}\n")
-    print(f"\n✅ Log saved to '{log_path}'")
+
+def append_to_log(log_path: Path, task: str, timestamp: str) -> None:
+    """Append a single task entry to the log file."""
+    with log_path.open('a', encoding='utf-8') as f:
+        f.write(f"{task} -> {timestamp}\n")
 
 def main() -> None:
     if len(sys.argv) < 2:
@@ -31,17 +32,8 @@ def main() -> None:
     
     task_file = Path(sys.argv[1])
     tasks = load_tasks(task_file)
-    timestamps: List[Tuple[str, str]] = []
     
-    print(f"== Productivity Session for '{task_file}' ==")
-    print("Press Enter to start or complete each task and log the timestamp.\n")
-    
-    for i, task in enumerate(tasks, start=1):
-        input(f"Task {i}/{len(tasks)}: {task}\nPress Enter when ready to log timestamp...")
-        timestamps.append((task, time.strftime('%Y-%m-%d %H:%M:%S')))
-        print(f"✅ Timestamp logged: {timestamps[-1][1]}\n")
-    
-    # Create log path using Path operations
+    # Create log path
     timestamp_str = datetime.now().strftime("%Y%m%d_%H%M%S")
     log_path = (
         task_file.resolve().parent 
@@ -49,7 +41,21 @@ def main() -> None:
         / f"{task_file.stem}_log_{timestamp_str}.txt"
     )
     
-    save_log(log_path, timestamps)
+    # Initialize log file
+    init_log_file(log_path)
+    
+    print(f"== Productivity Session for '{task_file}' ==")
+    print(f"Log will be saved incrementally to: {log_path}")
+    print("Press Enter to start or complete each task and log the timestamp.\n")
+    
+    for i, task in enumerate(tasks, start=1):
+        input(f"Task {i}/{len(tasks)}: {task}\nPress Enter when ready to log timestamp...")
+        timestamp = time.strftime('%Y-%m-%d %H:%M:%S')
+        append_to_log(log_path, task, timestamp)
+        print(f"✅ Timestamp logged: {timestamp}")
+        print(f"💾 Entry appended to '{log_path}'\n")
+    
+    print("Session completed successfully!")
 
 if __name__ == "__main__":
     main()
