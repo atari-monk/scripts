@@ -44,8 +44,13 @@ def main() -> None:
     # Initialize log file
     init_log_file(log_path)
     
+    # Log script start timestamp
+    start_time = time.strftime('%Y-%m-%d %H:%M:%S')
+    append_to_log(log_path, "Script started", start_time)
+    
     print(f"== Productivity Session for '{task_file}' ==")
     print(f"Log will be saved incrementally to: {log_path}")
+    print(f"Session started at: {start_time}")
     print("Press Enter to start or complete each task and log the timestamp.\n")
     
     for i, task in enumerate(tasks, start=1):
