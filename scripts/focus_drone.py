@@ -39,9 +39,11 @@ def main():
         timestamps.append((task, time.strftime('%Y-%m-%d %H:%M:%S')))
         print(f"✅ Timestamp logged: {timestamps[-1][1]}\n")
     
+    # Get the directory of the input file
+    input_dir = os.path.dirname(os.path.abspath(task_file))
     base_name = os.path.splitext(os.path.basename(task_file))[0]
     timestamp_str = datetime.now().strftime("%Y%m%d_%H%M%S")
-    log_filename = f"{base_name}_log_{timestamp_str}.txt"
+    log_filename = os.path.join(input_dir, f"{base_name}_log_{timestamp_str}.txt")
     
     save_log(log_filename, timestamps)
 
