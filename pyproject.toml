@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "scripts"
+version = "1.0.0"
+description = "A simple scripts package"
+authors = [
+  { name="Atari Monk", email="you@example.com" }
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[project.scripts]
+info = "scripts.info:main"
+focus_drone = "scripts.focus_drone:main"
+tree_to_clipboard = "scripts.tree_to_clipboard:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
