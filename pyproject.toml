@@ -18,6 +18,7 @@ dev = ["pytest"]
 info = "scripts.info:main"
 focus_drone = "scripts.focus_drone:main"
 tree_to_clipboard = "scripts.tree_to_clipboard:main"
+blog_index = "scripts.blog_index:main"
 
 [tool.setuptools.packages.find]
 where = ["."]
