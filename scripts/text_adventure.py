@@ -112,24 +112,23 @@ def generate_dungeon() -> Tuple[List[Room], Room]:
     return rooms, rooms[0]
 
 
-def describe_room(room: Room) -> str:
-    description = [f"\n[bold]{room.description}[/bold]"]
+def describe_room(room: Room) -> None:  # Changed return type to None (prints directly)
+    typer.secho(room.description, bold=True)
     
     if room.items:
-        description.append("\n[green]Items here:[/green]")
-        description.extend(f"- {item.description}" for item in room.items)
-        
+        typer.secho("\nItems here:", fg="green")
+        for item in room.items:
+            typer.echo(f"- {item.description}")
+            
     if room.enemy:
-        description.append(
-            f"\n[red]Danger! A {room.enemy.enemy_type.value} "
-            f"({room.enemy.health} HP) lurks here![/red]"
+        typer.secho(
+            f"\nDanger! A {room.enemy.enemy_type.value} "
+            f"({room.enemy.health} HP) lurks here!",
+            fg="red"
         )
         
-    description.append("\n[blue]Exits:[/blue] " + ", ".join(
-        exit.name.lower() for exit in room.exits
-    ))
-    
-    return "\n".join(description)
+    typer.secho("\nExits:", fg="blue", nl=False)
+    typer.echo(" " + ", ".join(exit.name.lower() for exit in room.exits))
 
 
 def handle_command(player: Player, command: str) -> GameState:
@@ -166,20 +165,21 @@ def handle_command(player: Player, command: str) -> GameState:
 
 def move_player(player: Player, direction: Direction) -> GameState:
     if direction not in player.current_room.exits:
-        typer.echo("You can't go that way!")
+        typer.secho("You can't go that way!", fg="red")
         return GameState.PLAYING
         
     all_rooms = player.all_rooms
     possible_rooms = [room for room in all_rooms if room != player.current_room]
     if not possible_rooms:
-        typer.echo("There are no other rooms to move to!")
+        typer.secho("There are no other rooms to move to!", fg="red")
         return GameState.PLAYING
+        
     new_room = random.choice(possible_rooms)
     player.current_room = new_room
-    typer.echo(describe_room(player.current_room))
+    describe_room(player.current_room)  # Direct print
     
     if player.current_room.room_type == RoomType.TREASURE:
-        typer.echo("\n[bold yellow]You found the treasure! You win![/bold yellow]")
+        typer.secho("\nYou found the treasure! You win!", fg="yellow", bold=True)
         return GameState.WON
         
     return GameState.PLAYING
@@ -214,7 +214,7 @@ def use_item(player: Player, item_name: str) -> GameState:
 
 def attack_enemy(player: Player) -> GameState:
     if not player.current_room.enemy:
-        typer.echo("There's nothing to attack here!")
+        typer.secho("There's nothing to attack here!", fg="red")
         return GameState.PLAYING
         
     enemy = player.current_room.enemy
@@ -223,24 +223,26 @@ def attack_enemy(player: Player) -> GameState:
     damage = random.randint(10, 20) if has_sword else random.randint(5, 10)
     enemy.health -= damage
     
-    typer.echo(
+    typer.secho(
         f"You attack the {enemy.enemy_type.value} "
-        f"for {damage} damage! ({enemy.health} HP remaining)"
+        f"for {damage} damage! ({enemy.health} HP remaining)",
+        fg="cyan"
     )
     
     if enemy.health <= 0:
-        typer.echo(f"You defeated the {enemy.enemy_type.value}!")
+        typer.secho(f"You defeated the {enemy.enemy_type.value}!", fg="green", bold=True)
         player.current_room.enemy = None
         return GameState.PLAYING
         
     player.health -= enemy.damage
-    typer.echo(
+    typer.secho(
         f"The {enemy.enemy_type.value} attacks you "
-        f"for {enemy.damage} damage! ({player.health} HP remaining)"
+        f"for {enemy.damage} damage! ({player.health} HP remaining)",
+        fg="red"
     )
     
     if player.health <= 0:
-        typer.echo("\n[bold red]You have been defeated! Game over.[/bold red]")
+        typer.secho("\nYou have been defeated! Game over.", fg="red", bold=True)
         return GameState.LOST
         
     return GameState.PLAYING
@@ -248,28 +250,27 @@ def attack_enemy(player: Player) -> GameState:
 
 def show_inventory(player: Player) -> None:
     if not player.inventory:
-        typer.echo("Your inventory is empty.")
+        typer.secho("Your inventory is empty.", fg="yellow")
         return
         
-    typer.echo("[bold]Inventory:[/bold]")
+    typer.secho("Inventory:", bold=True)
     for item in player.inventory:
-        typer.echo(f"- {item.item_type.value}: {item.description}")
-    typer.echo(f"\nHealth: {player.health}")
+        typer.secho(f"- {item.item_type.value}: {item.description}", fg="cyan")
+    typer.secho(f"\nHealth: {player.health}", fg="green")
 
 
 def show_help() -> None:
-    typer.echo("\n[bold]Commands:[/bold]")
-    typer.echo("- [green]Movement[/green]: north/n, east/e, south/s, west/w")
-    typer.echo("- [green]Items[/green]: take <item>, use <item>, inventory/i")
-    typer.echo("- [green]Combat[/green]: attack")
-    typer.echo("- [green]Other[/green]: quit/q, help")
-    typer.echo("\nExplore the dungeon and find the treasure room to win!")
+    typer.secho("\nCommands:", bold=True)
+    typer.secho("- Movement: north/n, east/e, south/s, west/w", fg="green")
+    typer.secho("- Items: take <item>, use <item>, inventory/i", fg="green")
+    typer.secho("- Combat: attack", fg="green")
+    typer.secho("- Other: quit/q, help", fg="green")
+    typer.secho("\nExplore the dungeon and find the treasure room to win!", bold=True)
 
 
 def run_game() -> None:
-    """Run the game in interactive mode."""
-    typer.echo("[bold]Welcome to Dungeon Adventure![/bold]")
-    typer.echo("Type 'help' for commands or 'quit' to exit.\n")
+    typer.secho("Welcome to Dungeon Adventure!", bold=True)
+    typer.secho("Type 'help' for commands or 'quit' to exit.\n")
     
     rooms, starting_room = generate_dungeon()
     player = Player(
@@ -279,7 +280,7 @@ def run_game() -> None:
         all_rooms=rooms
     )
     
-    typer.echo(describe_room(player.current_room))
+    describe_room(player.current_room)  # Now prints directly
     
     game_state = GameState.PLAYING
     while game_state == GameState.PLAYING:
@@ -294,7 +295,7 @@ def run_game() -> None:
             game_state = GameState.QUIT
             
     if game_state == GameState.QUIT:
-        typer.echo("\nThanks for playing!")
+        typer.secho("\nThanks for playing!", bold=True)
     sys.exit(0)
 
 
