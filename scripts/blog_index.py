@@ -41,8 +41,8 @@ def generate_index_content(categories: Dict[str, List[Path]]) -> str:
         
         for file_path in sorted(files):
             title = file_path.stem.replace("-", " ").title()
-            html_path = file_path.with_suffix('.html')
-            content.append(f"- [{title}]({html_path})\n")
+            link_path = file_path.with_suffix('')
+            content.append(f"- [{title}]({link_path})\n")
     return "".join(content)
 
 
