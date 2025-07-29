@@ -1,5 +1,5 @@
 def main():
-    commands = ["info", "focus_drone", "tree_to_clipboard", "blog_index_h", "blog_index_ul", "text_adventure"]
+    commands = ["info", "focus_drone", "tree_to_clipboard", "blog_index_h", "blog_index_ul", "text_adventure", "alarm"]
 
     for command in commands:
         print(command)
