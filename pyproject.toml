@@ -18,7 +18,8 @@ dev = ["pytest"]
 info = "scripts.info:main"
 focus_drone = "scripts.focus_drone:main"
 tree_to_clipboard = "scripts.tree_to_clipboard:main"
-blog_index = "scripts.blog_index:main"
+blog_index_h = "scripts.blog_index_h:main"
+blog_index_ul = "scripts.blog_index_ul:main"
 text_adventure = "scripts.text_adventure:main"
 
 [tool.setuptools.packages.find]
