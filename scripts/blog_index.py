@@ -33,7 +33,9 @@ def generate_index_content(categories: Dict[str, List[Path]]) -> str:
     content: List[str] = []
     for category, files in sorted(categories.items()):
         if category != ".":
-            content.append(f"\n## {category}\n")
+            # Capitalize first letter of each word in category name
+            display_category = ' '.join(word.capitalize() for word in category.split('/'))
+            content.append(f"\n## {display_category}\n")
         else:
             content.append("\n## Root\n")
         
@@ -67,7 +69,7 @@ def main() -> None:
     args = parser.parse_args()
 
     # Define directories and files to ignore
-    IGNORE_DIRS = {"_layouts", "assets", ".git"}
+    IGNORE_DIRS = {"_layouts", "assets", ".git", "draft"}
     IGNORE_FILES = {"_config.yml", "README.md", "index.md"}
 
     try:
