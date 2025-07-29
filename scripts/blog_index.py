@@ -19,11 +19,11 @@ def should_ignore(path: Path, ignore_dirs: Set[str], ignore_files: Set[str]) -> 
 
 def discover_markdown_files(root_dir: Path, ignore_dirs: Set[str], ignore_files: Set[str]) -> Dict[str, List[Path]]:
     categories: Dict[str, List[Path]] = defaultdict(list)
-    for item in root_dir.glob("**/*.md"):
+    content_dir = root_dir / "content"
+    for item in content_dir.glob("**/*.md"):
         if (item.is_file() and 
-            item != root_dir / "index.md" and 
             not should_ignore(item, ignore_dirs, ignore_files)):
-            relative_path = item.relative_to(root_dir)
+            relative_path = item.relative_to(content_dir)
             category = str(relative_path.parent)
             categories[category].append(relative_path)
     return dict(categories)
