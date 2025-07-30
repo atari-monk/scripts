@@ -22,6 +22,7 @@ blog_index_h = "scripts.blog_index_h:main"
 blog_index_ul = "scripts.blog_index_ul:main"
 text_adventure = "scripts.text_adventure:main"
 alarm = "scripts.alarm:main"
+code_to_md = "scripts.code_to_md:main"
 
 [tool.setuptools.packages.find]
 where = ["."]
