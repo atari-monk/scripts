@@ -5,6 +5,13 @@ import argparse
 import pathlib
 import sys
 from typing import Iterable, Optional, Set, TextIO
+from io import StringIO
+
+try:
+    import pyperclip
+except ImportError:
+    print("Error: pyperclip module is required. Please install it with: pip install pyperclip")
+    sys.exit(1)
 
 
 class CodeFileProcessor:
@@ -68,25 +75,24 @@ class MarkdownGenerator:
     def __init__(
         self,
         root_dir: pathlib.Path,
-        output_file: pathlib.Path,
         ignore_dirs: Optional[Iterable[str]] = None,
         ignore_files: Optional[Iterable[str]] = None,
     ) -> None:
         self.root_dir = root_dir
-        self.output_file = output_file
         self.ignore_dirs: Set[str] = set(ignore_dirs) if ignore_dirs else set()
         self.ignore_files: Set[str] = set(ignore_files) if ignore_files else set()
 
-    def generate(self) -> None:
-        """Generate markdown file from directory contents."""
+    def generate(self) -> str:
+        """Generate markdown content from directory contents."""
         scanner = DirectoryScanner(
             ignore_dirs=self.ignore_dirs,
             ignore_files=self.ignore_files
         )
-        with self.output_file.open("w", encoding="utf-8") as output:
+        with StringIO() as buffer:
             for file_path in self._walk_directory():
                 if not scanner.should_ignore(file_path):
-                    CodeFileProcessor.file_to_markdown(file_path, output)
+                    CodeFileProcessor.file_to_markdown(file_path, buffer)
+            return buffer.getvalue()
 
     def _walk_directory(self) -> Iterable[pathlib.Path]:
         """Walk through directory and yield all file paths."""
@@ -100,19 +106,12 @@ class MarkdownGenerator:
 def parse_arguments() -> argparse.Namespace:
     """Parse and validate command line arguments."""
     parser = argparse.ArgumentParser(
-        description="Generate a Markdown file containing code from all files in a directory."
+        description="Generate a Markdown file containing code from all files in a directory and copy to clipboard."
     )
     parser.add_argument(
         "directory",
         type=pathlib.Path,
         help="Directory to scan for code files",
-    )
-    parser.add_argument(
-        "-o",
-        "--output",
-        type=pathlib.Path,
-        default=pathlib.Path("output.md"),
-        help="Output markdown file path (default: output.md)",
     )
     parser.add_argument(
         "--ignore-dirs",
@@ -123,7 +122,7 @@ def parse_arguments() -> argparse.Namespace:
     parser.add_argument(
         "--ignore-files",
         nargs="+",
-        default=[],
+        default=["vite-env.d.ts", "tsconfig.json", "package.json"],
         help="Specific files to ignore",
     )
     return parser.parse_args()
@@ -138,12 +137,16 @@ def main() -> None:
 
     generator = MarkdownGenerator(
         root_dir=args.directory,
-        output_file=args.output,
         ignore_dirs=args.ignore_dirs,
         ignore_files=args.ignore_files,
     )
-    generator.generate()
-    print(f"Markdown generated successfully at: {args.output}")
+    markdown_content = generator.generate()
+    
+    try:
+        pyperclip.copy(markdown_content)
+        print("Markdown content copied to clipboard successfully!")
+    except pyperclip.PyperclipException as e:
+        sys.exit(f"Error: Failed to copy to clipboard: {e}")
 
 
 if __name__ == "__main__":
