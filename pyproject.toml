@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "scripts"
+version = "1.0.0"
+description = "A simple scripts package"
+authors = [
+  { name="Atari Monk", email="you@example.com" }
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[project.scripts]
+blog_index_h = "scripts.blogging.blog_index_h:main"
+blog_index_nested = "scripts.blogging.blog_index_nested:main"
+blog_index_ul = "scripts.blogging.blog_index_ul:main"
+
+code_to_clipboard = "scripts.development.code_to_clipboard:main"
+tree_to_clipboard = "scripts.development.tree_to_clipboard:main"
+
+focus_drone = "scripts.other.focus_drone:main"
+text_adventure = "scripts.other.text_adventure:main"
+
+class_maintenance_prompts = "scripts.prompt_tool.class_maintenance_prompts:main"
+clipboard_collector = "scripts.prompt_tool.clipboard_collector:main"
+load_paths = "scripts.prompt_tool.load_paths:main"
+merge_paths = "scripts.prompt_tool.merge_paths:main"
+scan_and_save_paths = "scripts.prompt_tool.scan_and_save_paths:main"
+
+alarm = "scripts.utilities.alarm:main"
+info = "scripts.utilities.info:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
