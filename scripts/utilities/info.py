@@ -5,6 +5,8 @@ commands: Dict[str, List[Tuple[str, str]]] = {
     "Utilities": [
         ("info", "Displays system information"),
         ("alarm", "Sets an alarm or timer"),
+        ("alert25_cli", "Cli notification after 25 min"),
+        ("alert25_gui", "Gui notification after 25 min"),
     ],
     "Prompt Tool": [
         ("class_maintenance_prompts", "Generates class maintenance prompts for AI"),
@@ -15,6 +17,7 @@ commands: Dict[str, List[Tuple[str, str]]] = {
     ],
     "Development": [
         ("code_to_clipboard", "Copies code snippets to clipboard"),
+        ("pascal_to_kebab", "Converts pascal to kebab format"),
         ("tree_to_clipboard", "Copies directory tree structure to clipboard"),
     ],
     "Blogging": [

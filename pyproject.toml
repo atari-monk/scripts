@@ -20,6 +20,7 @@ blog_index_nested = "scripts.blogging.blog_index_nested:main"
 blog_index_ul = "scripts.blogging.blog_index_ul:main"
 
 code_to_clipboard = "scripts.development.code_to_clipboard:main"
+pascal_to_kebab = "scripts.development.pascal_to_kebab:app"
 tree_to_clipboard = "scripts.development.tree_to_clipboard:main"
 
 focus_drone = "scripts.other.focus_drone:main"
@@ -32,6 +33,8 @@ merge_paths = "scripts.prompt_tool.merge_paths:main"
 scan_and_save_paths = "scripts.prompt_tool.scan_and_save_paths:main"
 
 alarm = "scripts.utilities.alarm:main"
+alert25_cli = "scripts.utilities.alert25_cli:main"
+alert25_gui = "scripts.utilities.alert25_gui:main"
 info = "scripts.utilities.info:main"
 
 [tool.setuptools.packages.find]
