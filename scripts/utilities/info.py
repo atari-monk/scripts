@@ -24,6 +24,8 @@ commands: Dict[str, List[Tuple[str, str]]] = {
         ("blog_index_h", "Generates blog index with heading tags"),
         ("blog_index_nested", "Generates nested blog index structure"),
         ("blog_index_ul", "Generates blog index with unordered list"),
+        ("productivity_daily", "Generates productivity daily stats in dev-log"),
+        ("productivity_logs", "Generates productivity project logs in dev-log"),
     ],
     "Other": [
         ("focus_drone", "Focuses coder on a specific target"),

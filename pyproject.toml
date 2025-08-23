@@ -18,6 +18,8 @@ dev = ["pytest"]
 blog_index_h = "scripts.blogging.blog_index_h:main"
 blog_index_nested = "scripts.blogging.blog_index_nested:main"
 blog_index_ul = "scripts.blogging.blog_index_ul:main"
+productivity_daily = "scripts.blogging.productivity_daily:main"
+productivity_logs = "scripts.blogging.productivity_logs:main"
 
 code_to_clipboard = "scripts.development.code_to_clipboard:main"
 pascal_to_kebab = "scripts.development.pascal_to_kebab:app"
