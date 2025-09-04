@@ -39,5 +39,7 @@ alert25_cli = "scripts.utilities.alert25_cli:main"
 alert25_gui = "scripts.utilities.alert25_gui:main"
 info = "scripts.utilities.info:main"
 
+proj_log = "scripts.productivity.proj_log:main"
+
 [tool.setuptools.packages.find]
 where = ["."]
