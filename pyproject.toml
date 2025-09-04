@@ -40,6 +40,7 @@ alert25_gui = "scripts.utilities.alert25_gui:main"
 info = "scripts.utilities.info:main"
 
 proj_log = "scripts.productivity.proj_log:main"
+convert_to_format2 = "scripts.productivity.convert_to_format2:main"
 
 [tool.setuptools.packages.find]
 where = ["."]

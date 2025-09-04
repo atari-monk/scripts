@@ -27,7 +27,10 @@ commands: Dict[str, List[Tuple[str, str]]] = {
         ("productivity_daily", "Generates productivity daily stats in dev-log"),
         ("productivity_logs", "Generates productivity project logs in dev-log"),
     ],
-    "Productivity":[("proj_log", "Productivity log for projects")],
+    "Productivity":[
+        ("proj_log", "Productivity log for projects"),
+        ("convert_to_format2", "Productivity format convesion tool")
+    ],
     "Prompting":[("prompt_tool", "Prompting tool")],
     "Other": [
         ("focus_drone", "Focuses coder on a specific target"),
