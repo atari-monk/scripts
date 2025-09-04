@@ -1,10 +1,10 @@
-. "C:\Atari-Monk-Art\scripts\scripts\prompting\model\Prompt.ps1"
-. "C:\Atari-Monk-Art\scripts\scripts\prompting\function\Select-Template.ps1"
-. "C:\Atari-Monk-Art\scripts\scripts\prompting\function\Import-PromptFromFile.ps1"
-. "C:\Atari-Monk-Art\scripts\scripts\prompting\function\Import-PromptFromQueue.ps1"
-. "C:\Atari-Monk-Art\scripts\scripts\prompting\function\Move-QueueToHistory.ps1"
-. "C:\Atari-Monk-Art\scripts\scripts\prompting\function\Select-Project.ps1"
-. "C:\Atari-Monk-Art\scripts\scripts\prompting\function\Get-ProjectFiles.ps1"
+. "C:\Atari-Monk-Art\scripts\scripts\prompting_project\model\Prompt.ps1"
+. "C:\Atari-Monk-Art\scripts\scripts\prompting_project\function\Select-Template.ps1"
+. "C:\Atari-Monk-Art\scripts\scripts\prompting_project\function\Import-PromptFromFile.ps1"
+. "C:\Atari-Monk-Art\scripts\scripts\prompting_project\function\Import-PromptFromQueue.ps1"
+. "C:\Atari-Monk-Art\scripts\scripts\prompting_project\function\Move-QueueToHistory.ps1"
+. "C:\Atari-Monk-Art\scripts\scripts\prompting_project\function\Select-Project.ps1"
+. "C:\Atari-Monk-Art\scripts\scripts\prompting_project\function\Get-ProjectFiles.ps1"
 
 # First, load from template
 $selectedFile = Select-Template -TemplatePath "C:/Atari-Monk-Art/prompting/template" -FileFilter "*.json"

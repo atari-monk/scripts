@@ -20,7 +20,7 @@ class TextConverter:
     
     def _parse_input(self, text: str) -> List[str]:
         lines = text.strip().split('\n')
-        cleaned_lines = []
+        cleaned_lines: List[str] = []
         
         for line in lines:
             stripped_line = line.strip()

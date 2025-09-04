@@ -2,24 +2,6 @@ import argparse
 from typing import Dict, List, Tuple
 
 commands: Dict[str, List[Tuple[str, str]]] = {
-    "Utilities": [
-        ("info", "Displays system information"),
-        ("alarm", "Sets an alarm or timer"),
-        ("alert25_cli", "Cli notification after 25 min"),
-        ("alert25_gui", "Gui notification after 25 min"),
-    ],
-    "Prompt Tool": [
-        ("class_maintenance_prompts", "Generates class maintenance prompts for AI"),
-        ("clipboard_collector", "Collects and manages clipboard history"),
-        ("merge_paths", "Load paths and store files content in clipboard"),
-        ("load_paths", "Load paths.md file and stores files in clipboard"),
-        ("scan_and_save_paths", "Saves paths of project to paths.md"),
-    ],
-    "Development": [
-        ("code_to_clipboard", "Copies code snippets to clipboard"),
-        ("pascal_to_kebab", "Converts pascal to kebab format"),
-        ("tree_to_clipboard", "Copies directory tree structure to clipboard"),
-    ],
     "Blogging": [
         ("blog_index_h", "Generates blog index with heading tags"),
         ("blog_index_nested", "Generates nested blog index structure"),
@@ -27,17 +9,39 @@ commands: Dict[str, List[Tuple[str, str]]] = {
         ("productivity_daily", "Generates productivity daily stats in dev-log"),
         ("productivity_logs", "Generates productivity project logs in dev-log"),
     ],
-    "Productivity":[
-        ("proj_log", "Productivity log for projects"),
-        ("convert_to_format2", "Productivity format convesion tool")
+    "Command-Box": [
+        ("run_command_box", "Locally runs app command-box")
     ],
-    "Prompting":[("prompt_tool", "Prompting tool")],
+    "Development": [
+        ("build_zippy_test", "Tool for building projects (Out of order!)"),
+        ("code_to_clipboard", "Copies code snippets to clipboard"),
+        ("pascal_to_kebab", "Converts pascal to kebab format"),
+        ("tree_to_clipboard", "Copies directory tree structure to clipboard"),
+    ],
     "Other": [
-        ("focus_drone", "Focuses coder on a specific target"),
+        ("focus_drone", "Focuses coder on a specific target (Out of order!)"),
         ("text_adventure", "Starts a text-based adventure game"),
+    ],
+    "Productivity":[
+        ("convert_to_format2", "Productivity format convesion tool"),
+        ("proj_log", "Productivity log for projects")
+    ],
+    "Prompt Tools Collection": [
+        ("class_maintenance_prompts", "Generates class maintenance prompts for AI"),
+        ("clipboard_collector", "Collects and manages clipboard history"),
+        ("load_paths", "Load paths.md file and stores files in clipboard"),
+        ("merge_paths", "Load paths and store files content in clipboard"),
+        ("scan_and_save_paths", "Saves paths of project to paths.md"),
+    ],
+    "Prompting Project":[("list_md_json", "Converts list in md to array in json"), ("open_llm", "Opens favorite llm client"), ("prompt_tool", "Prompting tool")],
+    "Utilities": [
+        ("alarm", "Sets an alarm or timer"),
+        ("alert25_cli", "Cli notification after 25 min"),
+        ("alert25_gui", "Gui notification after 25 min"),
+        ("info", "Displays system information"),
+        ("fix_path", "/ for path that is in clipboard"),
     ]
 }
-
 
 def main() -> None:
     parser = argparse.ArgumentParser(
