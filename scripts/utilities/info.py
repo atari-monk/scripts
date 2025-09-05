@@ -24,7 +24,9 @@ commands: Dict[str, List[Tuple[str, str]]] = {
     ],
     "Productivity":[
         ("convert_to_format2", "Productivity format convesion tool"),
-        ("proj_log", "Productivity log for projects")
+        ("productivity_to_blog", "Publish productivity logs to dev-blog"),
+        ("proj_log", "Productivity log for projects"),
+        ("push_productivity", "Commit and push productivity repository")
     ],
     "Prompt Tools Collection": [
         ("class_maintenance_prompts", "Generates class maintenance prompts for AI"),
