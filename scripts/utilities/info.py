@@ -12,6 +12,9 @@ commands: Dict[str, List[Tuple[str, str]]] = {
     "Command-Box": [
         ("run_command_box", "Locally runs app command-box")
     ],
+    "Dev-Blog": [
+        ("push_dev_blog", "Commit and push dev-blog repository")
+    ],
     "Development": [
         ("build_zippy_test", "Tool for building projects (Out of order!)"),
         ("code_to_clipboard", "Copies code snippets to clipboard"),
@@ -25,8 +28,7 @@ commands: Dict[str, List[Tuple[str, str]]] = {
     "Productivity":[
         ("convert_to_format2", "Productivity format convesion tool"),
         ("productivity_to_blog", "Publish productivity logs to dev-blog"),
-        ("proj_log", "Productivity log for projects"),
-        ("push_productivity", "Commit and push productivity repository")
+        ("proj_log", "Productivity log for projects")
     ],
     "Prompt Tools Collection": [
         ("class_maintenance_prompts", "Generates class maintenance prompts for AI"),

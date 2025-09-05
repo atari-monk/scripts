@@ -40,11 +40,11 @@ function Move-LogFiles {
     Get-ChildItem -Path $SourcePath -Filter "*.md" | ForEach-Object {
         try {
             $DestinationFile = Join-Path -Path $DestinationPath -ChildPath $_.Name
-            Move-Item -Path $_.FullName -Destination $DestinationFile -Force
-            Write-Host "Moved: $($_.FullName) to $DestinationFile"
+            Copy-Item -Path $_.FullName -Destination $DestinationFile -Force
+            Write-Host "Copied: $($_.FullName) to $DestinationFile"
         }
         catch {
-            Write-Error "Failed to move $($_.FullName): $($_.Exception.Message)"
+            Write-Error "Failed to copy $($_.FullName): $($_.Exception.Message)"
             throw
         }
     }
@@ -55,17 +55,15 @@ function Invoke-LogMigration {
     $DestinationDirectory = "C:/Atari-Monk-Art/dev-blog/content/projects/productivity/logs"
     
     try {
-        Write-Host "Starting log migration process"
+        Write-Host "Starting log copy process"
         Write-Host "Removing existing log files from: $DestinationDirectory"
         Remove-ExistingLogs -LogsPath $DestinationDirectory
-        
-        Write-Host "Moving new log files from: $SourceDirectory to: $DestinationDirectory"
-        Move-LogFiles -SourcePath $SourceDirectory -DestinationPath $DestinationDirectory
-        
-        Write-Host "Log migration completed successfully"
+        Write-Host "Copying log files from: $SourceDirectory to: $DestinationDirectory"
+        Copy-LogFiles -SourcePath $SourceDirectory -DestinationPath $DestinationDirectory
+        Write-Host "Log copy completed successfully"
     }
     catch {
-        Write-Error "Log migration failed: $($_.Exception.Message)"
+        Write-Error "Log copy failed: $($_.Exception.Message)"
         exit 1
     }
 }
