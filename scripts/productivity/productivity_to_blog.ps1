@@ -22,7 +22,7 @@ function Remove-ExistingLogs {
     }
 }
 
-function Move-LogFiles {
+function Copy-LogFiles {
     param (
         [string]$SourcePath,
         [string]$DestinationPath
