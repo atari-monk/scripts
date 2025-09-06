@@ -15,9 +15,7 @@ dependencies = []
 dev = ["pytest"]
 
 [project.scripts]
-blog_index_h = "scripts.blog.blog_index_h:main"
-blog_index_nested = "scripts.blog.blog_index_nested:main"
-blog_index_ul = "scripts.blog.blog_index_ul:main"
+blog_index = "scripts.blog.blog_index_nested:main"
 
 code_to_clipboard = "scripts.development.code_to_clipboard:main"
 pascal_to_kebab = "scripts.development.pascal_to_kebab:app"
