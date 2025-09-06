@@ -1,8 +1,3 @@
-#!/usr/bin/env python3
-"""
-Directory Index Generator - Creates nested Markdown index files with consistent capitalization.
-"""
-
 from pathlib import Path
 from typing import Dict, List, Set, DefaultDict
 from collections import defaultdict
@@ -10,7 +5,6 @@ import argparse
 
 
 class DirectoryIndexer:
-    """Generates nested Markdown index files with consistent capitalization."""
 
     def __init__(
         self,
@@ -19,7 +13,6 @@ class DirectoryIndexer:
         ignore_files: Set[str],
         output_name: str = "index.md",
     ) -> None:
-        """Initialize the indexer with configuration."""
         self.root_dir = root_dir
         self.ignore_dirs = ignore_dirs
         self.ignore_files = ignore_files
@@ -27,7 +20,6 @@ class DirectoryIndexer:
         self.content_dir = root_dir / "content"
 
     def should_ignore(self, path: Path) -> bool:
-        """Determine if a path should be ignored based on ignore rules."""
         if any(part in self.ignore_dirs for part in path.parts):
             return True
         if path.name in self.ignore_files:
@@ -35,14 +27,10 @@ class DirectoryIndexer:
         return False
 
     def format_name(self, name: str) -> str:
-        """Format a name by capitalizing the first letter and replacing hyphens with spaces."""
-        # Replace hyphens with spaces
         name = name.replace("-", " ")
-        # Capitalize first letter of each word
         return name.title()
 
     def discover_directory_structure(self) -> Dict[Path, List[Path]]:
-        """Discover directory structure mapping directories to their contents."""
         structure: DefaultDict[Path, List[Path]] = defaultdict(list)
 
         for item in self.content_dir.glob("**/*"):
@@ -53,7 +41,6 @@ class DirectoryIndexer:
         return dict(structure)
 
     def generate_directory_index(self, directory: Path, contents: List[Path]) -> str:
-        """Generate Markdown content for a directory index."""
         display_name = self.format_name(directory.name)
         lines: List[str] = [f"# {display_name}\n\n"]
         dirs: List[Path] = []
@@ -85,7 +72,6 @@ class DirectoryIndexer:
         return "".join(lines)
 
     def generate_all_indices(self) -> None:
-        """Generate index files for all directories."""
         structure = self.discover_directory_structure()
 
         for directory, contents in structure.items():
@@ -94,7 +80,6 @@ class DirectoryIndexer:
             index_path.write_text(index_content, encoding="utf-8")
 
     def generate_root_index(self) -> None:
-        """Generate root index with properly capitalized names."""
         dirs: List[Path] = []
         files: List[Path] = []
         
@@ -133,7 +118,6 @@ class DirectoryIndexer:
 
 
 def validate_directory(path: Path) -> Path:
-    """Validate that the path exists and is a directory."""
     if not path.exists():
         raise ValueError(f"Directory does not exist: {path}")
     if not path.is_dir():
@@ -142,7 +126,6 @@ def validate_directory(path: Path) -> Path:
 
 
 def main() -> None:
-    """Main entry point for the directory index generator."""
     parser = argparse.ArgumentParser(
         description="Generate nested Markdown index files with consistent capitalization."
     )
