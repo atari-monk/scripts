@@ -41,7 +41,7 @@ commands: Dict[str, List[Tuple[str, str]]] = {
         ("fix_path", "/ for path that is in clipboard"),
     ],
     "Turbo Laps Scenelet":[
-        ("open-prompt", "Opens prompt files for project"),
+        ("turbo_laps_scenelet_prompt", "Opens prompt files for project"),
     ]
 }
 
