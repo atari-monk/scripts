@@ -1,2 +1,3 @@
+code "C:/Atari-Monk-Art/productivity/content/format-2/turbo-laps.md"
 code "C:/Atari-Monk-Art/prompting/turbo-laps-scenelet/queue.json"
 code "C:/Atari-Monk-Art/prompting/turbo-laps-scenelet/history.json"
