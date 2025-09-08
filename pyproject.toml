@@ -18,7 +18,6 @@ dev = ["pytest"]
 blog_index = "scripts.blog.blog_index_nested:main"
 
 code_to_clipboard = "scripts.development.code_to_clipboard:main"
-pascal_to_kebab = "scripts.development.pascal_to_kebab:app"
 tree_to_clipboard = "scripts.development.tree_to_clipboard:main"
 
 focus_drone = "scripts.other.focus_drone:main"

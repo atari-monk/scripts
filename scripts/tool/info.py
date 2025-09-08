@@ -13,7 +13,6 @@ commands: Dict[str, List[Tuple[str, str]]] = {
     ],
     "Development": [
         ("code_to_clipboard", "Copies code snippets to clipboard"),
-        ("pascal_to_kebab", "Converts pascal to kebab format"),
         ("tree_to_clipboard", "Copies directory tree structure to clipboard"),
     ],
     "Other": [
@@ -38,6 +37,7 @@ commands: Dict[str, List[Tuple[str, str]]] = {
         ("alert25_cli", "Cli notification after 25 min"),
         ("alert25_gui", "Gui notification after 25 min"),
         ("info", "Displays system information"),
+        ("pascal_to_kebab", "Converts pascal to kebab format in current folder"),
         ("fix_path", "/ for path that is in clipboard"),
     ],
     "Turbo Laps Scenelet":[
