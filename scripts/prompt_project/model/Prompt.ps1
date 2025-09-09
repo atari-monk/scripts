@@ -1,19 +1,15 @@
 class Prompt {
-    # Required fields (must be provided during construction)
     [string]$Role
     [string]$Task
     [string]$OutputFormat
-    
-    # Optional fields (can be empty/null)
     [string]$Reasoning
     [string[]]$StopConditions
     [string[]]$Paths
     [string[]]$Requirements
+    [bool]$IncludeClipboard
 
-    # Default constructor for deserialization
     Prompt() {}
     
-    # Main constructor with required fields
     Prompt(
         [string]$role,
         [string]$task,
@@ -24,7 +20,6 @@ class Prompt {
         $this.OutputFormat = $outputFormat
     }
     
-    # Full constructor with all optional fields
     Prompt(
         [string]$role,
         [string]$task,
@@ -32,7 +27,8 @@ class Prompt {
         [string]$reasoning,
         [string[]]$stopConditions,
         [string[]]$paths,
-        [string[]]$requirements
+        [string[]]$requirements,
+        [bool]$includeClipboard
     ) {
         $this.Role = $role
         $this.Task = $task
@@ -41,12 +37,12 @@ class Prompt {
         $this.StopConditions = $stopConditions
         $this.Paths = $paths
         $this.Requirements = $requirements
+        $this.IncludeClipboard = $includeClipboard
     }
     
     [string]GetCombinedText() {
         $combinedText = @()
         
-        # Follow the exact order from the example
         $combinedText += "Role: $($this.Role)"
         $combinedText += "Task: $($this.Task)"
         
@@ -71,7 +67,6 @@ class Prompt {
             $combinedText += "Paths: $($this.Paths -join ', ')"
         }
         
-        # Add path content to context (this should come after Paths as in the example)
         if ($this.Paths -and $this.Paths.Count -gt 0) {
             $combinedText += "Path Contents:"
             foreach ($path in $this.Paths) {
@@ -87,7 +82,6 @@ class Prompt {
                             }
                             $combinedText += "File: $path"
                             $combinedText += "Content:"
-                            # Use single quotes and escape backticks properly
                             $combinedText += '```' + $extension
                             $combinedText += $content
                             $combinedText += '```'
@@ -95,16 +89,63 @@ class Prompt {
                             $combinedText += "File: $path (error reading: $($_.Exception.Message))"
                         }
                     }
-                    $combinedText += ""  # Add empty line between files
+                    $combinedText += ""
                 }
+            }
+        }
+
+        if ($this.IncludeClipboard) {
+            $clipboardContent = $this.GetClipboardContentLoop()
+            if (-not [string]::IsNullOrEmpty($clipboardContent)) {
+                $combinedText += "Clipboard Content:"
+                $combinedText += '```txt'
+                $combinedText += $clipboardContent
+                $combinedText += '```'
             }
         }
 
         return $combinedText -join "`r`n"
     }
     
+    [string]GetClipboardContentLoop() {
+        $allClipboardContent = @()
+        $clipboardCount = 0
+        
+        Write-Host "Clipboard content collection mode (press Enter to add current clipboard, 'done' to finish):" -ForegroundColor Yellow
+        
+        do {
+            $userInput = Read-Host "Press Enter to add clipboard content or type 'done'"
+            
+            if ($userInput -eq 'done') {
+                break
+            }
+            
+            try {
+                $clipboardText = Get-Clipboard -ErrorAction Stop
+                if (-not [string]::IsNullOrEmpty($clipboardText)) {
+                    $clipboardCount++
+                    Write-Host "Added clipboard content #$clipboardCount ($($clipboardText.Length) chars)" -ForegroundColor Green
+                    $allClipboardContent += "=== Clipboard Content #$clipboardCount ==="
+                    $allClipboardContent += $clipboardText
+                    $allClipboardContent += ""
+                } else {
+                    Write-Host "Clipboard is empty, skipping..." -ForegroundColor Yellow
+                }
+            } catch {
+                Write-Warning "Unable to access clipboard: $($_.Exception.Message)"
+            }
+            
+        } while ($true)
+        
+        if ($allClipboardContent.Count -gt 0) {
+            Write-Host "Added $clipboardCount clipboard snippets to context" -ForegroundColor Green
+            return $allClipboardContent -join "`r`n"
+        }
+        
+        return $null
+    }
+    
     [void]Execute() {
-        # Validate paths
         $validPaths = @()
         if ($this.Paths -and $this.Paths.Count -gt 0) {
             foreach ($path in $this.Paths) {
@@ -117,10 +158,8 @@ class Prompt {
             $this.Paths = $validPaths
         }
         
-        # Get enhanced combined text with path contents
         $combinedText = $this.GetCombinedText()
         
-        # Copy to clipboard
         try {
             Set-Clipboard -Value $combinedText
             Write-Host "Prompt executed and copied to clipboard!" -ForegroundColor Green
@@ -131,7 +170,6 @@ class Prompt {
         }
     }
     
-    # Save to file
     [void]SaveToFile([string]$filePath) {
         $data = @{
             Role = $this.Role
@@ -141,13 +179,13 @@ class Prompt {
             Reasoning = $this.Reasoning
             StopConditions = $this.StopConditions
             OutputFormat = $this.OutputFormat
+            IncludeClipboard = $this.IncludeClipboard
         }
         
         $data | ConvertTo-Json -Depth 3 | Out-File -FilePath $filePath -Encoding UTF8
         Write-Host "Prompt saved to: $filePath" -ForegroundColor Green
     }
     
-    # Helper method to get prompt summary
     [string]GetSummary() {
         $taskPreview = if ($this.Task.Length -gt 50) { 
             $this.Task.Substring(0, 47) + "..." 
@@ -161,6 +199,7 @@ Prompt Summary:
 - Task: $taskPreview
 - Requirements: $(if ($this.Requirements) { $this.Requirements.Count } else { 0 })
 - Paths: $(if ($this.Paths) { $this.Paths.Count } else { 0 })
+- Include Clipboard: $($this.IncludeClipboard)
 "@
     }
 }

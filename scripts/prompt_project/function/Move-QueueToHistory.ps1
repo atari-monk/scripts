@@ -1,4 +1,3 @@
-# Function to move top prompt from queue to history file
 function Move-QueueToHistory {
     param(
         [Parameter(Mandatory=$true)]
@@ -14,13 +13,11 @@ function Move-QueueToHistory {
     }
     
     try {
-        # Load queue data - handle empty file case
         $queueContent = Get-Content -Path $QueuePath -Raw -Encoding UTF8
         if ([string]::IsNullOrWhiteSpace($queueContent) -or $queueContent.Trim() -eq "[]") {
             $queueData = @()
         } else {
             $queueData = $queueContent | ConvertFrom-Json
-            # Ensure it's always an array, even if single object
             if ($queueData -isnot [array]) {
                 $queueData = @($queueData)
             }
@@ -31,10 +28,8 @@ function Move-QueueToHistory {
             return $false
         }
         
-        # Get the top item (first in array)
         $topItem = $queueData[0]
         
-        # Load or create history - handle empty file case
         $historyData = @()
         if (Test-Path $HistoryPath) {
             $historyContent = Get-Content -Path $HistoryPath -Raw -Encoding UTF8
@@ -43,21 +38,17 @@ function Move-QueueToHistory {
                 if ($existingHistory -is [array]) {
                     $historyData = $existingHistory
                 } elseif ($existingHistory -ne $null) {
-                    # Convert single object to array
                     $historyData = @($existingHistory)
                 }
             }
         }
         
-        # Add timestamp and empty Result field to the prompt item
         $topItemWithTimestamp = $topItem | Select-Object *
         $topItemWithTimestamp | Add-Member -NotePropertyName "ProcessedDate" -NotePropertyValue (Get-Date -Format "yyyy-MM-dd HH:mm:ss")
         $topItemWithTimestamp | Add-Member -NotePropertyName "Result" -NotePropertyValue ""
         
-        # Add to history at the BOTTOM/END of the array
         $historyData = @($historyData) + @($topItemWithTimestamp)
         
-        # FORCE history to always be an array, even with one item
         $jsonOutput = if ($historyData.Count -eq 0) {
             "[]"
         } else {
@@ -66,10 +57,8 @@ function Move-QueueToHistory {
         
         $jsonOutput | Out-File -FilePath $HistoryPath -Encoding UTF8 -Force
         
-        # Remove from queue if requested
         if ($RemoveFromQueue) {
             $remainingQueue = $queueData | Select-Object -Skip 1
-            # Ensure queue remains as array, even if empty
             $queueOutput = if ($remainingQueue.Count -eq 0) {
                 "[]"
             } else {

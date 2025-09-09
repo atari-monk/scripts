@@ -13,16 +13,14 @@ function Import-PromptFromFile {
         
         $prompt = [Prompt]::new()
         
-        # Required fields
         $prompt.Role = $jsonData.Role
         $prompt.Task = $jsonData.Task
         $prompt.OutputFormat = $jsonData.OutputFormat
-        
-        # Optional fields
         $prompt.Reasoning = $jsonData.Reasoning
         $prompt.StopConditions = $jsonData.StopConditions
         $prompt.Paths = $jsonData.Paths
         $prompt.Requirements = $jsonData.Requirements
+        $prompt.IncludeClipboard = $jsonData.IncludeClipboard
         
         return $prompt
     }

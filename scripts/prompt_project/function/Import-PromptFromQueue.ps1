@@ -16,12 +16,10 @@ function Import-PromptFromQueue {
             return $null
         }
         
-        # Get the first (topmost) item from the queue array
         $queueItem = $queueData[0]
         
         $prompt = [Prompt]::new()
         
-        # Only set fields that exist in the queue item
         if ($queueItem.PSObject.Properties['Task']) { $prompt.Task = $queueItem.Task }
         if ($queueItem.PSObject.Properties['Requirements']) { $prompt.Requirements = $queueItem.Requirements }
         if ($queueItem.PSObject.Properties['Paths']) { $prompt.Paths = $queueItem.Paths }
@@ -29,6 +27,7 @@ function Import-PromptFromQueue {
         if ($queueItem.PSObject.Properties['OutputFormat']) { $prompt.OutputFormat = $queueItem.OutputFormat }
         if ($queueItem.PSObject.Properties['Reasoning']) { $prompt.Reasoning = $queueItem.Reasoning }
         if ($queueItem.PSObject.Properties['StopConditions']) { $prompt.StopConditions = $queueItem.StopConditions }
+        if ($queueItem.PSObject.Properties['IncludeClipboard']) { $prompt.IncludeClipboard = $queueItem.IncludeClipboard }
         
         return $prompt
     }
