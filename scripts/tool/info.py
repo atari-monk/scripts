@@ -23,9 +23,10 @@ commands: Dict[str, List[Tuple[str, str]]] = {
         ("proj_log", "Productivity log for projects")
     ],
     "Prompt Project":[
+        ("prompt_dequeue", "Moves record form promt queue to history"),
         ("list_md_json", "Converts list in md to array in json"),
         ("open_llm", "Opens favorite llm client"),
-        ("prompt_tool", "Prompting tool")
+        ("prompt_tool", "Prompting tool, compose prompt from template and queue to clipboard")
     ],
     "Prompt Tool": [
         ("clipboard_collector", "Collects and manages clipboard history"),

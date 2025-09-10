@@ -43,9 +43,11 @@ function Move-QueueToHistory {
             }
         }
         
+        $result = Read-Host "Enter result for this prompt"
+        
         $topItemWithTimestamp = $topItem | Select-Object *
         $topItemWithTimestamp | Add-Member -NotePropertyName "ProcessedDate" -NotePropertyValue (Get-Date -Format "yyyy-MM-dd HH:mm:ss")
-        $topItemWithTimestamp | Add-Member -NotePropertyName "Result" -NotePropertyValue ""
+        $topItemWithTimestamp | Add-Member -NotePropertyName "Result" -NotePropertyValue $result
         
         $historyData = @($historyData) + @($topItemWithTimestamp)
         
