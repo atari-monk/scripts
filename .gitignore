@@ -1,0 +1,21 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+
+# Egg info
+*.egg-info/
+
+# Mine
+
+# List everything to ignore explicitly
+bills_data/
+blender/
+data/
+docs/
+prompt/
+scripts_archive/
+pyproject.toml
+
+# Un-ignore the specific file path
+!scripts/
+!scripts/snippet_collector.py
