@@ -16,6 +16,5 @@ prompt/
 scripts_archive/
 pyproject.toml
 
-# Un-ignore the specific file path
+# Un-ignore scripts
 !scripts/
-!scripts/snippet_collector.py
