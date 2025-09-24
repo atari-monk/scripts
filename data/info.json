@@ -16,6 +16,11 @@
             "category": "Scripts"
         },
         {
+            "alias": "timer",
+            "description": "Non-blocking timer with always-on-top popup",
+            "category": "Scripts"
+        },
+        {
             "alias": "treecp",
             "description": "Directory tree to Markdown clipboard exporter",
             "category": "Scripts"

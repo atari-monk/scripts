@@ -18,6 +18,7 @@ dev = ["pytest"]
 info = "scripts.info:main"
 snip = "scripts.snip:main"
 src2md = "scripts.src2md:main"
+timer = "scripts.timer:main"
 treecp = "scripts.treecp:main"
 
 [tool.setuptools.packages.find]
