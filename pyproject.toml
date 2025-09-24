@@ -16,6 +16,7 @@ dev = ["pytest"]
 
 [project.scripts]
 info = "scripts.info:main"
+path2md = "scripts.path2md:main"
 snip = "scripts.snip:main"
 src2md = "scripts.src2md:main"
 timer = "scripts.timer:main"

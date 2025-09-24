@@ -6,6 +6,11 @@
             "category": "Scripts"
         },
         {
+            "alias": "path2md",
+            "description": "Utility to collect files and content of paths into a single Markdown file in clip",
+            "category": "Scripts"
+        },
+        {
             "alias": "snip",
             "description": "Utility to collect snippets from clipboard or file into a single Markdown file in clip",
             "category": "Scripts"
