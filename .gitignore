@@ -10,7 +10,6 @@ __pycache__/
 # List everything to ignore explicitly
 bills_data/
 blender/
-data/
 docs/
 prompt/
 scripts_archive/

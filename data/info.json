@@ -1,0 +1,24 @@
+{
+    "commands": [
+        {
+            "alias": "info",
+            "description": "Atari-Monk command reference display",
+            "category": "Scripts"
+        },
+        {
+            "alias": "snip",
+            "description": "Utility to collect snippets from clipboard or file into a single Markdown file in clip",
+            "category": "Scripts"
+        },
+        {
+            "alias": "src2md",
+            "description": "Directory src to Markdown clipboard exporter",
+            "category": "Scripts"
+        },
+        {
+            "alias": "treecp",
+            "description": "Directory tree to Markdown clipboard exporter",
+            "category": "Scripts"
+        }
+    ]
+}
