@@ -14,7 +14,7 @@ data/
 docs/
 prompt/
 scripts_archive/
-pyproject.toml
+pyproject_archive.toml
 
 # Un-ignore scripts
 !scripts/
