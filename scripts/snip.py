@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Snippet Collector
+Snip - Snippet Collector
 
 Small utility to collect snippets from clipboard or file into a single Markdown file in clip.
 """
@@ -174,7 +174,7 @@ def show_collection(file_path: Path) -> None:
 
 
 def build_parser() -> argparse.ArgumentParser:
-    p = argparse.ArgumentParser(prog="snippet_collector", description="Collect snippets from clipboard or files into a Markdown file.")
+    p = argparse.ArgumentParser(prog="snip", description="Collect snippets from clipboard or files into a Markdown file.")
     p.add_argument(
         "--path",
         "-p",
