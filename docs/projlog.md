@@ -1,7 +1,6 @@
 # projlog.py
 
-- This is one person use, single file script
-- It is a simple tool for logging on projects
+- Tool for logging about projects
 
 ## Cli api definition
 
@@ -36,15 +35,6 @@ Refine somescript.py
 Renamed to path2md.py
 scripts\path2md.py quality assured
 ```
-
-## Implementation
-
-- There should be a balance between scope of task and complexity of code
-- We should minimize lines of code sufficient to do the task but code have to be human readable (bigger weight) 
-- Abstractions and patterns should be used only if they have proven massive gains and minimize lines and improve readability
-- Argparse for cli features
-- Code should be written so it is implementing requirements, readable, maintainable
-- Code quality should be so it is not needed to be ever modified
 
 ## Edge Cases/Fixes
 
