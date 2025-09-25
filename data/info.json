@@ -1,6 +1,11 @@
 {
     "commands": [
         {
+            "alias": "cstats",
+            "description": "Code statistics for a file",
+            "category": "Scripts"
+        },
+        {
             "alias": "info",
             "description": "Atari-Monk command reference display",
             "category": "Scripts"
