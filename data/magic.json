@@ -1,0 +1,18 @@
+{
+    "commands": [
+        {
+            "name": "red",
+            "description": "Creates a Vite Vanilla TypeScript project using PNPM.",
+            "emoji": "🚀",
+            "color": "Red",
+            "script": "pnpm create vite {name} --template vanilla-ts; Set-Location {name} -ErrorAction SilentlyContinue; pnpm install"
+        },
+        {
+            "name": "blue",
+            "description": "Just prints a message.",
+            "emoji": "📢",
+            "color": "Blue",
+            "script": "Write-Host 'Hello, {name}! This is blue command.' -ForegroundColor Cyan; Write-Host 'Hello, {name}! This is blue command.' -ForegroundColor Blue; Write-Host 'Hello, {name}! This is blue command.' -ForegroundColor DarkBlue"
+        }
+    ]
+}

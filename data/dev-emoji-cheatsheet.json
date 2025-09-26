@@ -1,0 +1,153 @@
+{
+    "dev-setup": [
+        {
+            "name": "Laptop",
+            "emoji": "💻",
+            "description": "Coding / Dev environment"
+        },
+        {
+            "name": "Hammer & Wrench",
+            "emoji": "🛠️",
+            "description": "Tools / Setup"
+        },
+        {
+            "name": "Package",
+            "emoji": "📦",
+            "description": "Dependencies / Install"
+        },
+        {
+            "name": "Gear",
+            "emoji": "⚙️",
+            "description": "Configuration / Build"
+        },
+        {
+            "name": "Light Bulb",
+            "emoji": "💡",
+            "description": "Ideas / Planning"
+        },
+        {
+            "name": "Clipboard",
+            "emoji": "📋",
+            "description": "Checklist / Task"
+        },
+        {
+            "name": "Scroll",
+            "emoji": "📜",
+            "description": "Docs / Instructions"
+        },
+        { "name": "Pen", "emoji": "🖊️", "description": "Write code / notes" }
+    ],
+    "dev-build": [
+        {
+            "name": "Rocket",
+            "emoji": "🚀",
+            "description": "Deploy / Launch project"
+        },
+        {
+            "name": "Lightning",
+            "emoji": "⚡",
+            "description": "Fast build / execution"
+        },
+        { "name": "Fire", "emoji": "🔥", "description": "Hot / active build" },
+        {
+            "name": "Sparkles",
+            "emoji": "✨",
+            "description": "Highlight / success"
+        },
+        { "name": "Hammer", "emoji": "🔨", "description": "Compile / build" },
+        { "name": "Gear", "emoji": "⚙️", "description": "Build config" },
+        {
+            "name": "Clipboard Check",
+            "emoji": "✅",
+            "description": "Successful build"
+        }
+    ],
+    "dev-test": [
+        { "name": "Bug", "emoji": "🐛", "description": "Bug / issue" },
+        {
+            "name": "Magnifying Glass",
+            "emoji": "🔍",
+            "description": "Debug / Inspect"
+        },
+        { "name": "Explosion", "emoji": "💥", "description": "Test / stress" },
+        {
+            "name": "Robot",
+            "emoji": "🤖",
+            "description": "Automated tests / CI"
+        },
+        {
+            "name": "Hourglass",
+            "emoji": "⏳",
+            "description": "Waiting / test in progress"
+        },
+        { "name": "Cross Mark", "emoji": "❌", "description": "Failed test" },
+        { "name": "Checkmark", "emoji": "✅", "description": "Passed test" }
+    ],
+    "dev-deploy": [
+        { "name": "Rocket", "emoji": "🚀", "description": "Launch / Deploy" },
+        {
+            "name": "Globe",
+            "emoji": "🌍",
+            "description": "Production / server"
+        },
+        {
+            "name": "Package",
+            "emoji": "📦",
+            "description": "Deployable package"
+        },
+        {
+            "name": "Scroll",
+            "emoji": "📜",
+            "description": "Release notes / changelog"
+        },
+        {
+            "name": "Clipboard Check",
+            "emoji": "✅",
+            "description": "Deployment success"
+        },
+        {
+            "name": "Warning",
+            "emoji": "⚠️",
+            "description": "Deployment warning / issue"
+        }
+    ],
+    "dev-git": [
+        {
+            "name": "Envelope",
+            "emoji": "✉️",
+            "description": "Commit / message"
+        },
+        { "name": "Clipboard", "emoji": "📋", "description": "Copy / staging" },
+        { "name": "Push", "emoji": "📤", "description": "Push changes" },
+        { "name": "Pull", "emoji": "📥", "description": "Pull changes" },
+        { "name": "Branch", "emoji": "🌿", "description": "Feature / branch" },
+        { "name": "Merge", "emoji": "🔀", "description": "Merge branch" },
+        { "name": "Tag", "emoji": "🏷️", "description": "Tag / release" }
+    ],
+    "dev-ci": [
+        { "name": "Robot", "emoji": "🤖", "description": "CI / automation" },
+        { "name": "Gear", "emoji": "⚙️", "description": "Pipeline config" },
+        { "name": "Lightning", "emoji": "⚡", "description": "Fast CI build" },
+        { "name": "Fire", "emoji": "🔥", "description": "CI error / fail" },
+        { "name": "Checkmark", "emoji": "✅", "description": "CI success" },
+        { "name": "Hourglass", "emoji": "⏳", "description": "CI waiting" }
+    ],
+    "dev-misc": [
+        { "name": "Star", "emoji": "⭐", "description": "Important" },
+        {
+            "name": "Crown",
+            "emoji": "👑",
+            "description": "Top priority / main branch"
+        },
+        { "name": "Thumbs Up", "emoji": "👍", "description": "Approval" },
+        { "name": "Thumbs Down", "emoji": "👎", "description": "Rejection" },
+        { "name": "Clap", "emoji": "👏", "description": "Well done" },
+        { "name": "Question", "emoji": "❓", "description": "Unknown / debug" },
+        {
+            "name": "Exclamation",
+            "emoji": "❗",
+            "description": "Alert / warning"
+        },
+        { "name": "Sparkler", "emoji": "🎇", "description": "Highlight / fun" }
+    ]
+}
