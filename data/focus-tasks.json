@@ -1,0 +1,32 @@
+[
+    {
+        "Name": "Diy Drill Stand",
+        "Description": "Diy Drill Stand out of green wood milled on table saw",
+        "Tasks": [
+            {
+                "Task": "Decide x cm gap beetween drills (Split wood needed cutting with hand saw)"
+            },
+            {
+                "Task": "Mark drills positions"
+            },
+            {
+                "Task": "Setup wood for drilling"
+            },
+            {
+                "Task": "Drill 10mm drill"
+            },
+            {
+                "Task": "Drill 8mm drill"
+            },
+            {
+                "Task": "Drill 6mm drill"
+            },
+            {
+                "Task": "Drill 3mm drill"
+            },
+            {
+                "Task": "Fit drills, show people"
+            }
+        ]
+    }
+]

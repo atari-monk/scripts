@@ -1,0 +1,58 @@
+[
+  {
+    "Name": "Diy Drill Stand_20250926_132022",
+    "TaskList": "Diy Drill Stand",
+    "Active": false,
+    "CurrentTaskIndex": 8,
+    "Logs": [
+      {
+        "TaskIndex": 0,
+        "Start": "2025-09-26 13:20",
+        "Stop": "2025-09-26 13:46",
+        "Minutes": 26
+      },
+      {
+        "TaskIndex": 1,
+        "Start": "2025-09-26 13:46",
+        "Stop": "2025-09-26 13:47",
+        "Minutes": 1
+      },
+      {
+        "TaskIndex": 2,
+        "Start": "2025-09-26 13:47",
+        "Stop": "2025-09-26 13:54",
+        "Minutes": 7
+      },
+      {
+        "TaskIndex": 3,
+        "Start": "2025-09-26 13:54",
+        "Stop": "2025-09-26 13:54",
+        "Minutes": 0
+      },
+      {
+        "TaskIndex": 4,
+        "Start": "2025-09-26 13:54",
+        "Stop": "2025-09-26 13:58",
+        "Minutes": 4
+      },
+      {
+        "TaskIndex": 5,
+        "Start": "2025-09-26 13:58",
+        "Stop": "2025-09-26 14:00",
+        "Minutes": 2
+      },
+      {
+        "TaskIndex": 6,
+        "Start": "2025-09-26 14:00",
+        "Stop": "2025-09-26 14:08",
+        "Minutes": 8
+      },
+      {
+        "TaskIndex": 7,
+        "Start": "2025-09-26 14:08",
+        "Stop": "2025-09-26 14:16",
+        "Minutes": 8
+      }
+    ]
+  }
+]

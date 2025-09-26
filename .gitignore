@@ -13,6 +13,7 @@ blender/
 prompt/
 scripts_archive/
 pyproject_archive.toml
+temp.ps1
 
 # Un-ignore scripts
 !scripts/
