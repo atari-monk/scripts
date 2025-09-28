@@ -4,6 +4,6 @@ $filePath = Join-Path $fullPath $config.fileName
 
 New-Item -ItemType Directory -Path $fullPath -Force | Out-Null
 
-Get-Clipboard | Set-Content $filePath
+Get-Clipboard | Add-Content $filePath
 
 Write-Host "Content written to: $filePath"
