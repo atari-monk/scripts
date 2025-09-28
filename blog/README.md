@@ -92,3 +92,70 @@ Run the test scripts to verify functionality:
 # Test clipboard and utilities modules
 .\test-core-utils.ps1
 ```
+
+# Blog CLI Tool - Part 3: List and Files Commands
+
+This is the third part of the modular blog CLI tool implementation.
+
+## Current Implementation
+
+✅ **Completed:** Core Path Handling Module (`core/paths.ps1`)  
+✅ **Completed:** Core Clipboard Module (`core/clipboard.ps1`)  
+✅ **Completed:** Core Utilities Module (`core/utils.ps1`)  
+✅ **Completed:** List Command Module (`commands/list.ps1`)  
+✅ **Completed:** Files Command Module (`commands/files.ps1`)
+
+### Features Implemented:
+
+**List Command:**
+- Recursive category listing with tree display
+- Text filtering for category names
+- Optional file listing within categories
+- Hierarchical tree formatting with emojis
+- Summary statistics
+
+**Files Command:**
+- File listing in specific categories
+- File metadata (size, modification date)
+- Text filtering for file names
+- Formatted table display
+- Quick action suggestions
+
+### Functions Available:
+
+**List Command:**
+- `List-Categories` - Main listing function with all options
+- `Format-CategoryTree` - Internal tree formatting
+- `Show-ListHelp` - Command help display
+
+**Files Command:**
+- `List-Files` - Main file listing function
+- `Format-FileList` - File metadata formatting
+- `Display-FileTable` - Table display formatter
+- `Show-FilesHelp` - Command help display
+
+## Testing
+
+Run the test scripts to verify functionality:
+
+```powershell
+# Test core modules
+.\test-paths.ps1
+.\test-core-utils.ps1
+
+# Test command modules
+.\test-commands.ps1
+```
+
+## Usage Examples
+
+```powershell
+# Browse categories
+blog list dev-blog
+blog list dev-blog --filter python
+blog list dev-blog --show-files
+
+# Browse files
+blog files dev-blog programming
+blog files dev-blog programming/python --filter tips
+```
