@@ -21,6 +21,16 @@
             "category": "Scripts"
         },
         {
+            "alias": "magic",
+            "description": "Runs cli commands with syntax 'magic color args'",
+            "category": "Scripts"
+        },
+        {
+            "alias": "nscript",
+            "description": "Adds new ps1 script file and alias from clipboard content",
+            "category": "Scripts"
+        },
+        {
             "alias": "path2md",
             "description": "Utility to collect files and content of paths into a single Markdown file in clip",
             "category": "Scripts"
@@ -31,6 +41,11 @@
             "category": "Scripts"
         },
         {
+            "alias": "putfile",
+            "description": "Define path in putfile.json, creates file from clipboard content",
+            "category": "Scripts"
+        },
+        {
             "alias": "snip",
             "description": "Utility to collect snippets from clipboard or file into a single Markdown file in clip",
             "category": "Scripts"
@@ -38,6 +53,11 @@
         {
             "alias": "src2md",
             "description": "Directory src to Markdown clipboard exporter",
+            "category": "Scripts"
+        },
+        {
+            "alias": "taskmd",
+            "description": "Gets timestamps for list of tasks defined in md file (plan tool)",
             "category": "Scripts"
         },
         {
