@@ -2,9 +2,9 @@
 # Creates new posts from clipboard content
 
 # Import core modules
-#Import-Module "$PSScriptRoot\..\core\paths.psm1" -Force
-#Import-Module "$PSScriptRoot\..\core\clipboard.psm1" -Force
-#Import-Module "$PSScriptRoot\..\core\utils.psm1" -Force
+Import-Module "$PSScriptRoot\..\core\paths.psm1" -Force
+Import-Module "$PSScriptRoot\..\core\clipboard.psm1" -Force
+Import-Module "$PSScriptRoot\..\core\utils.psm1" -Force
 
 function New-PostContent {
     <#

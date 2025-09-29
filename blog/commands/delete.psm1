@@ -2,8 +2,8 @@
 # Handles post deletion with confirmation and safety features
 
 # Import core modules
-# Import-Module "$PSScriptRoot\..\core\paths.psm1" -Force
-# Import-Module "$PSScriptRoot\..\core\utils.psm1" -Force
+Import-Module "$PSScriptRoot\..\core\paths.psm1" -Force
+Import-Module "$PSScriptRoot\..\core\utils.psm1" -Force
 
 function Get-FileInfoForDeletion {
     <#
