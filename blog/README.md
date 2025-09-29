@@ -246,3 +246,74 @@ blog edit dev-blog programming new-article
 # 4. Browse to verify
 blog list dev-blog --show-files
 ```
+
+# Blog CLI Tool - Part 5: Delete Command
+
+This is the fifth part of the modular blog CLI tool implementation.
+
+## Current Implementation
+
+✅ **Completed:** Core Path Handling Module (`core/paths.psm1`)  
+✅ **Completed:** Core Clipboard Module (`core/clipboard.psm1`)  
+✅ **Completed:** Core Utilities Module (`core/utils.psm1`)  
+✅ **Completed:** List Command Module (`commands/list.psm1`)  
+✅ **Completed:** Files Command Module (`commands/files.psm1`)  
+✅ **Completed:** Post Command Module (`commands/post.psm1`)  
+✅ **Completed:** Edit Command Module (`commands/edit.psm1`)  
+✅ **Completed:** Delete Command Module (`commands/delete.psm1`)
+
+### Features Implemented:
+
+**Delete Command:**
+- Comprehensive file information display before deletion
+- Safety confirmation prompts (can be bypassed with --force)
+- File preview showing first few lines of content
+- Automatic cleanup of empty categories after deletion
+- Detailed metadata display (size, dates, line/word counts)
+- Protection against accidental deletion
+
+### Functions Available:
+
+**Delete Command:**
+- `Delete-File` - Main deletion function with all safety features
+- `Get-FileInfoForDeletion` - File metadata retrieval
+- `Show-DeletionSummary` - Detailed pre-deletion information display
+- `Remove-EmptyCategory` - Automatic cleanup of empty folders
+- `Show-DeleteHelp` - Command help display
+
+## Testing
+
+Run the test scripts to verify functionality:
+
+```powershell
+# Test core modules
+.\test-paths.ps1
+.\test-core-utils.ps1
+
+# Test command modules
+.\test-commands.ps1
+.\test-post-edit.ps1
+.\test-delete.ps1
+```
+
+## Usage Examples
+
+```powershell
+# Safe deletion with confirmation
+blog delete dev-blog programming old-post
+
+# Force deletion (no confirmation)
+blog delete mind-dump ideas temp-idea --force
+
+# Delete without cleaning up empty categories
+blog delete dev-blog test sample --no-cleanup
+```
+
+## Safety Features
+
+- **Confirmation prompts** for all deletions (unless --force)
+- **File preview** shows content before deletion
+- **Metadata display** with size, dates, and statistics
+- **Empty category cleanup** maintains clean folder structure
+- **Clear warnings** about irreversibility
+
