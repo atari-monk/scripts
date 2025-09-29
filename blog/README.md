@@ -317,3 +317,140 @@ blog delete dev-blog test sample --no-cleanup
 - **Empty category cleanup** maintains clean folder structure
 - **Clear warnings** about irreversibility
 
+# Blog CLI Tool - Complete Implementation
+
+A high-level, semi-automated CLI tool to manage multiple blogs efficiently, directly from the console.
+
+## 🎯 Features
+
+- **📝 Post Management**: Create posts from clipboard, edit, delete
+- **📚 Content Browsing**: List categories and files with filtering
+- **⚙️ Multi-Blog Support**: Manage dev-blog and mind-dump simultaneously
+- **🔧 Configuration**: Customizable settings for editor and behavior
+- **🎨 User-Friendly**: Colorful output, emojis, and clear feedback
+
+## 🏗️ Architecture
+
+```
+blog-cli/
+│
+├── blog.ps1                    # CLI entry point
+├── config.psm1                 # Configuration management
+├──
+├── core/                       # Core utilities
+│   ├── paths.psm1             # Path resolution and blog roots
+│   ├── clipboard.psm1         # Clipboard operations
+│   └── utils.psm1             # Logging, filtering, validation
+│
+├── commands/                   # Command implementations
+│   ├── list.psm1              # Category listing
+│   ├── post.psm1              # Post creation from clipboard
+│   ├── files.psm1             # File listing in categories
+│   ├── edit.psm1              # File editing
+│   └── delete.psm1            # Post deletion
+│
+└── tests/                      # Test scripts
+    ├── test-paths.ps1
+    ├── test-core-utils.ps1
+    ├── test-commands.ps1
+    ├── test-post-edit.ps1
+    ├── test-delete.ps1
+    └── test-cli.ps1
+```
+
+## 🚀 Quick Start
+
+### Basic Usage
+
+```powershell
+# Browse categories
+blog list dev-blog
+blog list dev-blog --show-files
+blog list dev-blog --filter python
+
+# Browse files
+blog files dev-blog programming
+blog files dev-blog programming/python --filter tips
+
+# Create posts
+blog post dev-blog programming new-tips
+blog post mind-dump ideas new-idea --force
+
+# Edit posts
+blog edit dev-blog programming new-tips
+blog edit mind-dump ideas new-idea --editor code
+
+# Delete posts
+blog delete dev-blog programming old-post
+blog delete mind-dump ideas temp-idea --force
+
+# Configuration
+blog config --show
+blog config --set editor code
+```
+
+### Complete Workflow
+
+```powershell
+# 1. Copy content to clipboard
+# 2. Create post from clipboard
+blog post dev-blog programming python-article
+
+# 3. Edit if needed
+blog edit dev-blog programming python-article
+
+# 4. Browse to verify
+blog list dev-blog --show-files
+blog files dev-blog programming
+
+# 5. Delete when no longer needed
+blog delete dev-blog programming python-article
+```
+
+## ⚙️ Configuration
+
+Current configuration includes:
+
+- **Blog Roots**: dev-blog and mind-dump paths
+- **Editor**: Auto-detected (VS Code, Notepad++, etc.)
+- **Auto Index**: Automatic indexing after changes
+- **Log Level**: INFO, DEBUG, WARN, ERROR
+- **Safety Features**: Confirmation prompts, empty category cleanup
+
+## 🧪 Testing
+
+Run all tests to verify functionality:
+
+```powershell
+.\tests\test-paths.ps1
+.\tests\test-core-utils.ps1
+.\tests\test-commands.ps1
+.\tests\test-post-edit.ps1
+.\tests\test-delete.ps1
+.\tests\test-cli.ps1
+```
+
+## 🔮 Future Enhancements
+
+Planned features:
+
+- **Integration Modules**: Indexing and GitHub push automation
+- **Configuration Files**: Persistent settings storage
+- **Additional Commands**: Search, statistics, backup
+- **Cross-Platform**: Enhanced Linux/macOS support
+
+## 📋 Command Reference
+
+| Command | Usage | Description |
+|---------|-------|-------------|
+| `list` | `blog list <blog> [--filter] [--show-files]` | Browse categories |
+| `post` | `blog post <blog> <category> <file> [--force]` | Create from clipboard |
+| `files` | `blog files <blog> <category> [--filter]` | List files in category |
+| `edit` | `blog edit <blog> <category> <file> [--editor]` | Edit in system editor |
+| `delete` | `blog delete <blog> <category> <file> [--force]` | Delete with confirmation |
+| `config` | `blog config [--show] [--set]` | Manage settings |
+| `help` | `blog help [command]` | Show help |
+
+---
+
+**✅ Implementation Complete!** The core blog CLI tool is ready for use.
