@@ -16,6 +16,7 @@ dev = ["pytest"]
 
 [project.scripts]
 cstats = "scripts.cstats:main"
+entry = "scripts.entry:main"
 focus = "scripts.focus:main"
 info = "scripts.info:main"
 path2md = "scripts.path2md:main"

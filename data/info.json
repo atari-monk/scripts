@@ -6,6 +6,11 @@
             "category": "Scripts"
         },
         {
+            "alias": "entry",
+            "description": "Generates aliases for scripts and projects",
+            "category": "Scripts"
+        },
+        {
             "alias": "focus",
             "description": "Script to define lists of tasks and collect their time stats",
             "category": "Scripts"
