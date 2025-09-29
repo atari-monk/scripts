@@ -159,3 +159,90 @@ blog list dev-blog --show-files
 blog files dev-blog programming
 blog files dev-blog programming/python --filter tips
 ```
+
+# Blog CLI Tool - Part 4: Post and Edit Commands
+
+This is the fourth part of the modular blog CLI tool implementation.
+
+## Current Implementation
+
+✅ **Completed:** Core Path Handling Module (`core/paths.ps1`)  
+✅ **Completed:** Core Clipboard Module (`core/clipboard.ps1`)  
+✅ **Completed:** Core Utilities Module (`core/utils.ps1`)  
+✅ **Completed:** List Command Module (`commands/list.ps1`)  
+✅ **Completed:** Files Command Module (`commands/files.ps1`)  
+✅ **Completed:** Post Command Module (`commands/post.ps1`)  
+✅ **Completed:** Edit Command Module (`commands/edit.ps1`)
+
+### Features Implemented:
+
+**Post Command:**
+- Clipboard content validation and reading
+- YAML front matter generation with metadata
+- Automatic category creation
+- File conflict detection and overwrite protection
+- Content formatting and statistics
+- Force mode for overwriting existing files
+
+**Edit Command:**
+- System editor auto-detection (VS Code, Notepad++, etc.)
+- Editor fallback chain with environment variable support
+- File metadata display before/after editing
+- Wait for editor completion
+- File change statistics
+
+### Functions Available:
+
+**Post Command:**
+- `Post-FromClipboard` - Main post creation function
+- `New-PostContent` - Content formatting with YAML front matter
+- `Test-PostCreation` - Pre-creation validation
+- `Show-PostHelp` - Command help display
+
+**Edit Command:**
+- `Edit-File` - Main file editing function
+- `Open-FileInEditor` - Editor launching with file handling
+- `Get-SystemEditor` - Editor auto-detection
+- `Show-EditHelp` - Command help display
+
+## Testing
+
+Run the test scripts to verify functionality:
+
+```powershell
+# Test core modules
+.\test-paths.ps1
+.\test-core-utils.ps1
+
+# Test command modules
+.\test-commands.ps1
+.\test-post-edit.ps1
+```
+
+## Usage Examples
+
+```powershell
+# Create new posts
+blog post dev-blog programming python-tips
+blog post mind-dump ideas new-idea --force
+blog post dev-blog javascript tips --auto-push
+
+# Edit existing posts
+blog edit dev-blog programming python-tips
+blog edit mind-dump ideas my-idea --editor code
+blog edit dev-blog javascript notes --no-index
+```
+
+## Workflow Example
+
+```powershell
+# 1. Copy content to clipboard
+# 2. Create post from clipboard
+blog post dev-blog programming new-article
+
+# 3. Edit the post if needed
+blog edit dev-blog programming new-article
+
+# 4. Browse to verify
+blog list dev-blog --show-files
+```
