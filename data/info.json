@@ -46,6 +46,11 @@
             "category": "Scripts"
         },
         {
+            "alias": "pymsg",
+            "description": "Normalize pylance messages in clipboard",
+            "category": "Scripts"
+        },
+        {
             "alias": "snip",
             "description": "Utility to collect snippets from clipboard or file into a single Markdown file in clip",
             "category": "Scripts"
