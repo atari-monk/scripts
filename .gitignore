@@ -12,7 +12,7 @@ bills_data/
 blender/
 prompt/
 scripts_archive/
-pyproject_archive.toml
+waiting/
 temp.ps1
 
 # Un-ignore scripts
