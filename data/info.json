@@ -1,6 +1,11 @@
 {
     "commands": [
         {
+            "alias": "blog",
+            "description": "Cli tool handling blogs",
+            "category": "Cli"
+        },
+        {
             "alias": "cstats",
             "description": "Code statistics for a file",
             "category": "Scripts"
