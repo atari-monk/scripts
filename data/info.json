@@ -71,6 +71,11 @@
             "category": "Scripts"
         },
         {
+            "alias": "sread",
+            "description": "Generates README.md for scripts proj from info.json data",
+            "category": "Scripts"
+        },
+        {
             "alias": "taskmd",
             "description": "Gets timestamps for list of tasks defined in md file (plan tool)",
             "category": "Scripts"

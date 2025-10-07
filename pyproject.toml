@@ -24,6 +24,7 @@ projlog = "scripts.projlog:main"
 pymsg = "scripts.pymsg:main"
 snip = "scripts.snip:main"
 src2md = "scripts.src2md:main"
+sread = "scripts.sread:main"
 timer = "scripts.timer:main"
 treecp = "scripts.treecp:main"
 
