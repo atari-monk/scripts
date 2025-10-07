@@ -1,8 +1,0 @@
-- [ ] Task: Run `magic red turbo-laps-dev` to create Vite Vanilla TypeScript project
-- [ ] Task: Clean template files (main.ts, style.css, index.html)
-- [ ] Task: Install zippy-shared-lib with pnpm
-- [ ] Task: Install fullscreen-canvas-vanilla with pnpm
-- [ ] Task: Install zippy-game-engine with pnpm
-- [ ] Task: Engine Sanity Check - minimal TypeScript initialization code
-- [ ] Task: Implement Button-Based Scene Menu
-- [ ] Task: Develop Ellipse Track Scene in src/scenes/EllipseTrackScene.ts

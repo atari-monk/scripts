@@ -4,7 +4,7 @@ param([string]$command)
 # CONFIG
 # ============================
 
-$TaskFile = "C:\Atari-Monk\scripts\data\tasks.md"
+$TaskFile = "C:\Atari-Monk\logs\task-2025.md"
 
 # Map emojis to console colors
 $EmojiColors = @{
