@@ -56,6 +56,11 @@
             "category": "Scripts"
         },
         {
+            "alias": "runcmddb",
+            "description": "Runs command-box webapp for handling commands db",
+            "category": "Scripts"
+        },
+        {
             "alias": "snip",
             "description": "Utility to collect snippets from clipboard or file into a single Markdown file in clip",
             "category": "Scripts"
