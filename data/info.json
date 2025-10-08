@@ -66,6 +66,11 @@
             "category": "Scripts"
         },
         {
+            "alias": "speech",
+            "description": "Utility to transcribe speech to text with 'whisper'",
+            "category": "Scripts"
+        },
+        {
             "alias": "src2md",
             "description": "Directory src to Markdown clipboard exporter",
             "category": "Scripts"
