@@ -1,11 +1,11 @@
-# speech
+# stt (Speech To Text Tool) - Technical Specification
 
 A Python script that records audio from the microphone and transcribes it to text using OpenAI's Whisper model.
 
 ## CLI API
 
 ```sh
-speech
+stt
 ```
 
 ## Core Functionality

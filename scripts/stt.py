@@ -31,10 +31,9 @@ def record_audio():
             data = stream.read(CHUNK, exception_on_overflow=False)
             frames.append(data)
             if keyboard.is_pressed('enter'):
-                print("⏹️ Stopping recording...")
                 break
     except KeyboardInterrupt:
-        print("⏹️ Recording interrupted")
+        pass
     
     stream.stop_stream()
     stream.close()
@@ -48,23 +47,18 @@ def record_audio():
         wf.setframerate(RATE)
         wf.writeframes(b''.join(frames))
     
-    print(f"💾 Saved as {filename}")
     return filename
 
 def main():
     # Model selection - base offers best balance of speed/accuracy
-    model_name = "base"  # tiny(base/small/medium/large
-    
-    print("🚀 Starting speech-to-text...")
+    model_name = "base"  # tiny/base/small/medium/large
     
     # Record audio
     audio_file = record_audio()
     
     # Load model and transcribe
-    print("🤖 Loading Whisper model...")
-    model = whisper.load_model(model_name)
-    
     print("📝 Transcribing...")
+    model = whisper.load_model(model_name)
     
     # Optimized transcription parameters
     result = model.transcribe(
