@@ -18,16 +18,18 @@ dev = ["pytest"]
 cstats = "scripts.cstats:main"
 entry = "scripts.entry:main"
 focus = "scripts.focus:main"
+ftt = "scripts.ftt:main"
 info = "scripts.info:main"
 path2md = "scripts.path2md:main"
 projlog = "scripts.projlog:main"
 pymsg = "scripts.pymsg:main"
+scripts_readme = "scripts.scripts_readme:main"
 snip = "scripts.snip:main"
-speech = "scripts.speech:main"
 src2md = "scripts.src2md:main"
-sread = "scripts.sread:main"
+stt = "scripts.stt:main"
 timer = "scripts.timer:main"
 treecp = "scripts.treecp:main"
+tts = "scripts.tts:main"
 
 [tool.setuptools.packages.find]
 where = ["."]

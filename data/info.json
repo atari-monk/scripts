@@ -21,6 +21,11 @@
             "category": "Scripts"
         },
         {
+            "alias": "ftt",
+            "description": "Converts file with speech to text",
+            "category": "Scripts"
+        },
+        {
             "alias": "info",
             "description": "Atari-Monk command reference display",
             "category": "Scripts"
@@ -61,13 +66,13 @@
             "category": "Scripts"
         },
         {
-            "alias": "snip",
-            "description": "Utility to collect snippets from clipboard or file into a single Markdown file in clip",
+            "alias": "scripts_readme",
+            "description": "Generates README.md for scripts proj from info.json data",
             "category": "Scripts"
         },
         {
-            "alias": "speech",
-            "description": "Utility to transcribe speech to text with 'whisper'",
+            "alias": "snip",
+            "description": "Utility to collect snippets from clipboard or file into a single Markdown file in clip",
             "category": "Scripts"
         },
         {
@@ -76,8 +81,8 @@
             "category": "Scripts"
         },
         {
-            "alias": "sread",
-            "description": "Generates README.md for scripts proj from info.json data",
+            "alias": "stt",
+            "description": "Utility to transcribe speech to text with 'whisper'",
             "category": "Scripts"
         },
         {
@@ -93,6 +98,11 @@
         {
             "alias": "treecp",
             "description": "Directory tree to Markdown clipboard exporter",
+            "category": "Scripts"
+        },
+        {
+            "alias": "tts",
+            "description": "Text to speech converter",
             "category": "Scripts"
         }
     ]
