@@ -1,4 +1,4 @@
-# sread.py
+# scripts_readme.py
 
 - Script to generate README documentation from JSON command data
 - Creates organized markdown documentation with command reference tables
@@ -6,10 +6,10 @@
 ## Actual Usage
 
 ```sh
-sread                    # Generate README with default paths
-sread -i input.json      # Use custom input JSON file
-sread -o output.md       # Use custom output markdown file
-sread -i input.json -o output.md  # Custom both files
+scripts_readme                    # Generate README with default paths
+scripts_readme -i input.json      # Use custom input JSON file
+scripts_readme -o output.md       # Use custom output markdown file
+scripts_readme -i input.json -o output.md  # Custom both files
 ```
 
 ## Default Paths
