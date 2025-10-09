@@ -30,6 +30,7 @@ stt = "scripts.stt:main"
 timer = "scripts.timer:main"
 treecp = "scripts.treecp:main"
 tts = "scripts.tts:main"
+vidlog = "scripts.vidlog:main"
 
 [tool.setuptools.packages.find]
 where = ["."]

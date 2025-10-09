@@ -104,6 +104,11 @@
             "alias": "tts",
             "description": "Text to speech converter",
             "category": "Scripts"
+        },
+        {
+            "alias": "vidlog",
+            "description": "Loging video links",
+            "category": "Scripts"
         }
     ]
 }
