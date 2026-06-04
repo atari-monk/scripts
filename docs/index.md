@@ -6,6 +6,7 @@
 
 - [Prompt Assembler](en/prompt-assembler/index.md)
 - [Commit Info](en/commit-info/index.md)
+- [Initialize Structure](en/initialize-structure/index.md)
 
 ---
 
