@@ -1,0 +1,2 @@
+## Repository for single-file, standalone [scripts](https://atari-monk.github.io/scripts) (py, ps1)
+## Repozytorium [skryptów](https://atari-monk.github.io/scripts) jednoplikowych, samodzielnych (py, ps1)
