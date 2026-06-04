@@ -4,4 +4,12 @@
 
 ### Skrypty
 
-- [Prompt Assembler](pl/prompt-assembler/index.md)
+- [Składacz Promptów](pl/prompt-assembler/index.md)
+- [Informacja o Commitach](pl/prompt-assembler/index.md)
+
+---
+
+- [Repozytorium Skryptów](en/scripts-repository.md)
+- [Notatki Dewelopera](https://atari-monk.github.io/dev-notes/)
+
+---
