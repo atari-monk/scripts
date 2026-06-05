@@ -104,12 +104,8 @@ def assemble(template_path: Path, mapping_path: Path) -> str:
     return "".join(parts)
 
 
-def main() -> int:
-    if len(sys.argv) != 3:
-        print("usage: assemble_prompt.py TEMPLATE MAP", file=sys.stderr)
-        return 1
-
-    result = assemble(Path(sys.argv[1]), Path(sys.argv[2]))
+def run_cli(template_path: Path, map_path: Path) -> int:
+    result = assemble(template_path, map_path)
 
     subprocess.run(
         "xclip -selection clipboard",
@@ -121,6 +117,14 @@ def main() -> int:
 
     print("Copied result to clipboard.")
     return 0
+
+
+def main() -> int:
+    if len(sys.argv) != 3:
+        print("usage: assemble_prompt.py TEMPLATE MAP", file=sys.stderr)
+        return 1
+
+    return run_cli(Path(sys.argv[1]), Path(sys.argv[2]))
 
 
 if __name__ == "__main__":

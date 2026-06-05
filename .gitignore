@@ -1,2 +1,3 @@
 .config/prompt-map.json
 .config/initialize-structure.json
+__pycache__

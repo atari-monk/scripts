@@ -5,6 +5,7 @@
 ### Scripts
 
 - [Prompt Assembler](en/prompt-assembler/index.md)
+- [Prompt](en/prompt/index.md)
 - [Commit Info](en/commit-info/index.md)
 - [Initialize Structure](en/initialize-structure/index.md)
 

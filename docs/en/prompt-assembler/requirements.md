@@ -1,7 +1,5 @@
 ## Prompt Assembler Script Requirements
 
-Extracted from code.
-
 ### Command-Line Interface Behavior
 
 - The program must be executed with exactly two command-line arguments: a template file path and a mapping JSON file path.
