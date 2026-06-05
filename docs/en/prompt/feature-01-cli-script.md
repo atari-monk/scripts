@@ -60,5 +60,5 @@ prompts.json:
 
 ### Acceptance Criteria
 
-- [ ] `prompt action project` works in terminal
-- [ ] `prompt` prints help with list of actions and projects
+- [x] `prompt action project` works in terminal
+- [x] `prompt` prints help with list of actions and projects

@@ -13,4 +13,4 @@ Bash Wrapper to run my script with `commit-info`
 
 ### Acceptance Criteria
 
-- [ ] `commit-info` in terminal runs script
+- [x] `commit-info` in terminal runs script
