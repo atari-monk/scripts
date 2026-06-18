@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-set -euo pipefail
-python3 /home/atari-monk/atari-monk/project/scripts/scripts/python/commit_info.py "$@"

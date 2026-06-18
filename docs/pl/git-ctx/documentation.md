@@ -1,4 +1,4 @@
-## Dokumentacja Skryptu Informacji o Commitach
+## Dokumentacja Skryptu Kontekst Git
 
 Generuje uporządkowane podsumowanie Markdown zmian Git w stanie staged, unstaged i untracked dla repozytorium oraz opcjonalnie kopiuje je do schowka.
 
@@ -15,7 +15,7 @@ Ten skrypt jest przydatny do szybkiego generowania podsumowania kontekstu gotowe
 ### Jak go uruchomić
 
 ```bash
-python3 script.py /path/to/repo "Your change description"
+python3 git_ctx.py /path/to/repo "Your change description"
 ```
 
 ### Dane wejściowe
@@ -49,5 +49,5 @@ Opcjonalne zależności:
 ### Przykład
 
 ```bash
-python3 git_changes.py ~/projects/my-app "Refactored authentication flow and fixed login bug"
+python3 git_ctx.py ~/projects/my-app "Refactored authentication flow and fixed login bug"
 ```

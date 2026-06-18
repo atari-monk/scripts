@@ -1,4 +1,4 @@
-## Commit Info Script Documentation
+## Git Context Script Documentation
 
 Generates a structured Markdown summary of staged, unstaged, and untracked Git changes for a repository and optionally copies it to the clipboard.
 
@@ -15,7 +15,7 @@ This script is useful for quickly generating a commit-ready context summary, esp
 ### How to run it
 
 ```bash
-python3 script.py /path/to/repo "Your change description"
+python3 git_ctx.py /path/to/repo "Your change description"
 ```
 
 ### Inputs
@@ -45,5 +45,5 @@ Optional dependencies:
 ### Example
 
 ```bash
-python3 git_changes.py ~/projects/my-app "Refactored authentication flow and fixed login bug"
+python3 git_ctx.py ~/projects/my-app "Refactored authentication flow and fixed login bug"
 ```

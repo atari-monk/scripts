@@ -1,4 +1,4 @@
-## Commit Info Script Feature 01 - Script
+## Git Context Script Feature 01 - Script
 
 ### Goal
 

@@ -6,9 +6,9 @@
 
 ### Scripts
 
+- [Git Context](en/git-ctx/index.md)
 - [Prompt Assembler](en/prompt-assembler/index.md)
 - [Prompt](en/prompt/index.md)
-- [Commit Info](en/commit-info/index.md)
 - [Initialize Structure](en/initialize-structure/index.md)
 - [Templateify](en/templateify/index.md)
 - [Linkify](en/linkify/index.md)

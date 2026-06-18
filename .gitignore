@@ -1,3 +1,4 @@
 .config/prompt-map.json
 .config/initialize-structure.json
+.config/_git-changes-context.md
 __pycache__

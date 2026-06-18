@@ -6,8 +6,8 @@
 
 ### Skrypty
 
+- [Kontekst Git](pl/git-ctx/index.md)
 - [Składacz Promptów](pl/prompt-assembler/index.md)
-- [Informacja o Commitach](pl/prompt-assembler/index.md)
 - [Inicjalizator Struktury](pl/initialize-structure/index.md)
 
 ---

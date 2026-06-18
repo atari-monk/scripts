@@ -1,4 +1,4 @@
-## Commit Info Script Requirements
+## Git Context Script Requirements
 
 ### Command-Line Interface
 

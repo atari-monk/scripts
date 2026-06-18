@@ -1,4 +1,4 @@
-## Wymagania Skryptu Informacji o Commitach
+## Wymagania Skryptu Kontekst Git
 
 ### Interfejs wiersza poleceń
 

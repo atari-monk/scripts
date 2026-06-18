@@ -1,4 +1,6 @@
-## Commit Info Script Feature 02 - Bash Wrapper
+## Git Context Script Feature 02 - Bash Wrapper
+
+Deprecated due to newer bash command dispatcher script
 
 ### Goal
 

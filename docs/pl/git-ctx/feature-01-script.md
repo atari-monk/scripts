@@ -1,4 +1,4 @@
-## Skrypt Informacji o Commitach Funkcjonalność 01 - Skrypt
+## Skrypt Kontekst Git Funkcjonalność 01 - Skrypt
 
 ### Cel
 

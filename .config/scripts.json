@@ -5,9 +5,9 @@
             "script": "/home/atari-monk/atari-monk/project/scripts/scripts/powershell/initify.ps1",
             "description": "Initialize project structure"
         },
-        "commitify": {
+        "gitr": {
             "language": "py",
-            "script": "/home/atari-monk/atari-monk/project/scripts/scripts/python/commitify.py",
+            "script": "/home/atari-monk/atari-monk/project/scripts/scripts/python/gitr.py",
             "description": "Raport on git changes in project"
         },
         "linkify": {
