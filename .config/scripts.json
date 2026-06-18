@@ -15,14 +15,14 @@
             "script": "/home/atari-monk/atari-monk/project/scripts/scripts/python/md_index.py",
             "description": "Produce md links for Content list"
         },
-        "promptify": {
+        "prompt": {
             "language": "py",
-            "script": "/home/atari-monk/atari-monk/project/scripts/scripts/python/promptify.py",
+            "script": "/home/atari-monk/atari-monk/project/scripts/scripts/python/prompt.py",
             "description": "Produce prompts for projects"
         },
-        "templateify": {
+        "tpl-expand": {
             "language": "py",
-            "script": "/home/atari-monk/atari-monk/project/scripts/scripts/python/templateify.py",
+            "script": "/home/atari-monk/atari-monk/project/scripts/scripts/python/tpl_expand.py",
             "description": "Produce template injected with files"
         }
     }

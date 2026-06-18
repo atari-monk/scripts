@@ -1,4 +1,4 @@
-## scripts/python/templateify.py
+## File: scripts/python/tpl_expand.py
 
 ```py
 from __future__ import annotations

@@ -1,4 +1,4 @@
-## Templateify Script
+## Template Expand Script
 
 - Features:
     - [Script](feature-01-script.md)
@@ -8,7 +8,9 @@
 ### Commits
 
 - feat(templateify): add templateify script (2026-06-18)
+- feat(tpl-expand): remove regex, rename templateify to tpl-expand (2026-06-18)
 
 ### Tests
 
-- manual test pass (2026-06-18)
+- manual test pass
+    - 2026-06-18

@@ -10,7 +10,7 @@
 - [Prompt Assembler](en/prompt-assembler/index.md)
 - [Prompt](en/prompt/index.md)
 - [Initialize Structure](en/initialize-structure/index.md)
-- [Templateify](en/templateify/index.md)
+- [Template Expand](en/tpl-expand/index.md)
 - [Markdown Index](en/md-index/index.md)
 - [Scripts](en/scripts/index.md)
 

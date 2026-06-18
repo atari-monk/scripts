@@ -1,4 +1,4 @@
-## templateify.py
+## Template Expand
 
 Assembles a template file by replacing include directives with the contents of referenced files.
 
@@ -12,7 +12,7 @@ Assembles a template file by replacing include directives with the contents of r
 ### How to run it
 
 ```bash
-python templateify.py <template-file>
+python tpl_expand.py <template-file>
 ```
 
 ### Inputs
@@ -60,7 +60,7 @@ Given a template file:
 Run:
 
 ```bash
-python templateify.py _template.md
+python tpl_expand.py _template.md
 ```
 
 Result:
