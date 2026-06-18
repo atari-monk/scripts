@@ -1,4 +1,4 @@
-## Scripts Repository
+## Repository Rules
 
 ### Structure
 

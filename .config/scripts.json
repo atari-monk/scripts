@@ -1,0 +1,29 @@
+{
+    "commands": {
+        "initify": {
+            "language": "pwsh",
+            "script": "/home/atari-monk/atari-monk/project/scripts/scripts/powershell/initify.ps1",
+            "description": "Initialize project structure"
+        },
+        "commitify": {
+            "language": "py",
+            "script": "/home/atari-monk/atari-monk/project/scripts/scripts/python/commitify.py",
+            "description": "Raport on git changes in project"
+        },
+        "linkify": {
+            "language": "py",
+            "script": "/home/atari-monk/atari-monk/project/scripts/scripts/python/linkify.py",
+            "description": "Produce md links for Content list"
+        },
+        "promptify": {
+            "language": "py",
+            "script": "/home/atari-monk/atari-monk/project/scripts/scripts/python/promptify.py",
+            "description": "Produce prompts for projects"
+        },
+        "templateify": {
+            "language": "py",
+            "script": "/home/atari-monk/atari-monk/project/scripts/scripts/python/templateify.py",
+            "description": "Produce template injected with files"
+        }
+    }
+}

@@ -2,6 +2,8 @@
 
 ## Zawartość
 
+- [Zasady Repozytorium](en/scripts-repository.md)
+
 ### Skrypty
 
 - [Składacz Promptów](pl/prompt-assembler/index.md)
@@ -10,7 +12,6 @@
 
 ---
 
-- [Repozytorium Skryptów](en/scripts-repository.md)
 - [Notatki Dewelopera](https://atari-monk.github.io/dev-notes/)
 
 ---
