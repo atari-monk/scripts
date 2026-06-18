@@ -5,14 +5,14 @@
             "script": "/home/atari-monk/atari-monk/project/scripts/scripts/powershell/initify.ps1",
             "description": "Initialize project structure"
         },
-        "gitr": {
+        "git-ctx": {
             "language": "py",
-            "script": "/home/atari-monk/atari-monk/project/scripts/scripts/python/gitr.py",
+            "script": "/home/atari-monk/atari-monk/project/scripts/scripts/python/git_ctx.py",
             "description": "Raport on git changes in project"
         },
-        "linkify": {
+        "md-index": {
             "language": "py",
-            "script": "/home/atari-monk/atari-monk/project/scripts/scripts/python/linkify.py",
+            "script": "/home/atari-monk/atari-monk/project/scripts/scripts/python/md_index.py",
             "description": "Produce md links for Content list"
         },
         "promptify": {

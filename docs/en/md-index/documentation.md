@@ -1,6 +1,6 @@
-## Linkify Script
+## Markdown Index Script
 
-linkify.py — converts comma-separated text expressions into Markdown anchor-style link items.
+md_index.py — converts comma-separated text expressions into Markdown anchor-style link items.
 
 ### What it does
 
@@ -15,7 +15,7 @@ This script is useful for quickly generating a table-of-contents-style list from
 ### How to run it
 
 ```bash
-python linkify.py "First Item, Second Item, Third Item"
+python md_index.py "First Item, Second Item, Third Item"
 ```
 
 ### Inputs
@@ -36,5 +36,5 @@ python linkify.py "First Item, Second Item, Third Item"
 ### Example
 
 ```bash
-python linkify.py "Hello World, Data Pipeline, API Reference"
+python md_index.py "Hello World, Data Pipeline, API Reference"
 ```

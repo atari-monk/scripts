@@ -1,4 +1,4 @@
-## Linkify Script
+## Markdown Index Script
 
 ### Goal
 

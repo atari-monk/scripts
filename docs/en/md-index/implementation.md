@@ -1,4 +1,4 @@
-## File: scripts/python/linkify.py
+## File: scripts/python/md_index.py
 
 ```py
 from typing import List

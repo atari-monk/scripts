@@ -1,4 +1,4 @@
-## Linkify Script
+## Markdown Index Script
 
 - Features:
     - [Script](feature-01-script.md)
@@ -8,7 +8,9 @@
 ### Commits
 
 - feat(linkify): add linkify script (2026-06-18)
+- chore(md-index): rename linkify to md-index (2026-06-18)
 
 ### Tests
 
-- manual test pass (2026-06-18)
+- manual test pass
+    - 2026-06-18
