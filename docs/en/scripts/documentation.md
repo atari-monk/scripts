@@ -1,61 +1,62 @@
-## `Scripts` Script
+## `Scripts` Script Documentation
 
-Scripts CLI dispatcher (bash wrapper for running JSON-defined commands)
+Config-driven script runner for Python and PowerShell commands
 
 ### What it does
 
-- Acts as a command dispatcher that reads available commands from a JSON configuration file
-- Lets you list available scripts or execute a named script without hardcoding them in bash
-- Delegates actual execution to either Python or PowerShell scripts based on metadata in the config
+- Loads a JSON configuration file defining executable commands and their metadata
+- Provides a simple CLI to list available commands or execute them by name
+- Dispatches execution to either Python or PowerShell based on configuration
+- Standardizes running local scripts behind a single unified interface
 
-This solves the problem of managing multiple small utility scripts by centralizing their definitions in a single `scripts.json` file, making the system extensible without modifying the dispatcher.
+This script is useful when you want a single entry point (`scripts`) to manage multiple utility scripts without remembering their file paths or execution details.
 
 ### How to run it
 
 ```bash
-./scripts.sh list [-v|--verbose]
-./scripts.sh <command> [args...]
+python3 scripts.py list
+python3 scripts.py list --verbose
+python3 scripts.py <command> [args...]
 ```
 
 ### Inputs
 
-- JSON configuration file:
-  - `$HOME/atari-monk/project/scripts/.config/scripts.json`
+- CLI arguments:
+  - `list` — shows available commands
+  - `<command>` — name of a configured command from the config file
+  - optional flags:
+    - `-v`, `--verbose` (for list mode)
+  - optional positional arguments passed to the target script
+- Configuration file:
+  - `~/atari-monk/project/scripts/.config/scripts.json`
 
-- Commands:
-  - `list` → shows all available commands
-  - `<command>` → executes a configured script
-
-- Optional flags (for list mode):
-  - `-v` or `--verbose` → show command descriptions
-
-- Script arguments:
-  - Any additional arguments are passed directly to the underlying Python or PowerShell script
+  Expected structure:
+  ```json
+  {
+    "commands": {
+      "example": {
+        "language": "py",
+        "script": "/path/to/script.py",
+        "description": "Example script"
+      }
+    }
+  }
+  ```
 
 ### Outputs
 
-- `list` mode:
-  - Prints command names (or `name - description` in verbose mode)
-
-- execution mode:
-  - Runs the selected script and prints its output directly to stdout
-  - Errors if:
-    - command is not found
-    - script language is unsupported
-    - required script metadata is missing
+- Prints a list of available commands (with optional descriptions in verbose mode)
+- Executes the selected script and streams its output directly to the terminal
+- Returns exit code 1 on:
+  - missing or invalid command
+  - unsupported language
+  - malformed configuration
+- Returns script-specific output and exit status for executed commands
 
 ### Example
 
 ```bash
-# List available commands
-./scripts.sh list
-
-# List with descriptions
-./scripts.sh list --verbose
-
-# Run a configured command
-./scripts.sh backup-db
-
-# Run a command with arguments
-./scripts.sh resize-images --input ./img --quality 80
+python3 scripts.py list --verbose
+python3 scripts.py backup_db
+python3 scripts.py deploy staging
 ```

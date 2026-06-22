@@ -4,11 +4,15 @@
     - [Script](feature-01-script.md)
 - [Implementation](implementation.md)
 - [Documentation](documentation.md)
+- [Bash Link](bash-link.md)
 
 ### Commits
 
 - feat(scripts): add `scripts` script (2026-06-18)
+- feat(scripts): reimplement `scripts` from bash to python (2026-06-22)
 
 ### Tests
 
-- manual test pass (2026-06-18)
+- manual test pass
+    - 2026-06-18
+    - 2026-06-22

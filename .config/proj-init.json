@@ -4,7 +4,6 @@
         "scripts",
         "scripts/python",
         "scripts/powershell",
-        "scripts/bash",
         "docs",
         "docs/en",
         "docs/pl"
