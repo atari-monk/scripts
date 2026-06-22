@@ -1,4 +1,4 @@
-## Initialize Structure Script Requirements
+## Proj Init Script Requirements
 
 ### Script Invocation and Input
 

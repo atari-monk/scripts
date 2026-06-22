@@ -1,0 +1,18 @@
+{
+    "basePath": "/home/atari-monk/atari-monk/project/scripts",
+    "folders": [
+        "scripts",
+        "scripts/python",
+        "scripts/powershell",
+        "scripts/bash",
+        "docs",
+        "docs/en",
+        "docs/pl"
+    ],
+    "files": [
+        "README.md",
+        "docs/index.md",
+        "docs/_config.yml",
+        ".gitignore"
+    ]
+}

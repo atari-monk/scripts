@@ -1,3 +1,5 @@
+## File: scripts/powershell/proj-init.ps1
+
 ```powershell
 param (
     [Parameter(Mandatory = $true)]

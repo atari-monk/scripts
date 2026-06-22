@@ -1,0 +1,61 @@
+{
+    "root": "/home/atari-monk/atari-monk/project",
+    "requirements-description": [
+        ""
+    ],
+    "requirements-template": [
+        "prompts/templates/requirements.md"
+    ],
+    "requirements_reverse-code": [
+        "scripts/scripts/powershell/initialize-structure.ps1"
+    ],
+    "requirements_reverse-template": [
+        "prompts/templates/requirements.md"
+    ],
+    "feature-requirements": [
+        ""
+    ],
+    "feature-description": [
+        ""
+    ],
+    "feature-template": [
+        "prompts/templates/feature.md"
+    ],
+    "feature_reverse-code": [
+        "scripts/scripts/bash/scripts.sh"
+    ],
+    "feature_reverse-template": [
+        "prompts/templates/feature.md"
+    ],
+    "implementation-rules": [
+        "prompts/rules/code.md",
+        "prompts/rules/python-code.md"
+    ],
+    "implementation-feature": [
+        "scripts/docs/en/scripts/feature-01-script.md"
+    ],
+    "implementation-codebase": [
+        "scripts/scripts/python/scripts.py"
+    ],
+    "code-files": [
+        "scripts/scripts/bash/scripts.sh"
+    ],
+    "documentation-code": [
+        "scripts/scripts/python/scripts.py"
+    ],
+    "documentation-template": [
+        "prompts/templates/script-documentation.md"
+    ],
+    "commit_message-context": [
+        "scripts/.config/_git-changes-context.md"
+    ],
+    "explanation-code": [
+        ""
+    ],
+    "explanation-topic": [
+        ""
+    ],
+    "translation_en_pl-document": [
+        "scripts/docs/en/initialize-structure/documentation.md"
+    ]
+}

@@ -1,4 +1,4 @@
-## Initialize Structure Script Documentation
+## Proj Init Script Documentation
 
 Initialize project structure (folders and files) from a JSON configuration.
 
@@ -14,7 +14,7 @@ This script is useful for quickly scaffolding a project layout in a consistent a
 ### How to run it
 
 ```bash
-powershell -File script.ps1 -ConfigPath path/to/config.json
+powershell -File proj-init.ps1 -ConfigPath path/to/config.json
 ```
 
 ### Inputs
@@ -41,5 +41,5 @@ Example:
 ### Example
 
 ```bash
-powershell -File script.ps1 -ConfigPath .\config.json
+powershell -File proj-init.ps1 -ConfigPath .\config.json
 ```

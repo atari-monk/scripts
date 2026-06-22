@@ -1,4 +1,4 @@
-## Initialize Structure Script Feature 01 - Script
+## Proj Init Script, Feature 01 - Script
 
 ### Goal
 

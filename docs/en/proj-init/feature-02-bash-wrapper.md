@@ -1,4 +1,6 @@
-## Initialize Structure Script Feature 02 - Bash Wrapper
+## Proj Init Script, Feature 02 - Bash Wrapper
+
+Deprecated due to newer scripts dispatcher
 
 ### Goal
 

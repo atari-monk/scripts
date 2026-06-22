@@ -1,8 +1,8 @@
 {
     "commands": {
-        "initify": {
+        "proj-init": {
             "language": "pwsh",
-            "script": "/home/atari-monk/atari-monk/project/scripts/scripts/powershell/initify.ps1",
+            "script": "/home/atari-monk/atari-monk/project/scripts/scripts/powershell/proj-init.ps1",
             "description": "Initialize project structure"
         },
         "git-ctx": {
