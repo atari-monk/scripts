@@ -6,7 +6,7 @@ import sys
 from pathlib import Path
 from typing import cast
 
-from prompt_assembler import run_cli
+from prompt_build import run_cli
 
 
 BASE_DIR = Path(os.environ.get("HOME", "")) / "atari-monk" / "project"

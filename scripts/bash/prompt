@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-BASE="$HOME/atari-monk/project"
-SCRIPT="$BASE/scripts/scripts/python/prompt.py"
-
-python3 "$SCRIPT" "$@"

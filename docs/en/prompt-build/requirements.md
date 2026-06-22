@@ -1,4 +1,4 @@
-## Prompt Assembler Script Requirements
+## Prompt Build Script Requirements
 
 ### Command-Line Interface Behavior
 

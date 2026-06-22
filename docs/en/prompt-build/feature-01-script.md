@@ -1,4 +1,4 @@
-## Prompt Assembler Script Feature 01 - Script
+## Prompt Build Script Feature 01 - Script
 
 ### Goal
 

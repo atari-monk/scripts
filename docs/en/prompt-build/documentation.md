@@ -1,4 +1,4 @@
-## Prompt Assembler Script Documentation
+## Prompt Build Script Documentation
 
 Template assembler that expands include tokens into file contents and copies the result to clipboard.
 
@@ -15,7 +15,7 @@ This script is typically used to build prompt or document bundles from multiple 
 ### How to run it
 
 ```bash
-python assemble_prompt.py TEMPLATE MAP
+python prompt_build.py TEMPLATE MAP
 ```
 
 > Requires `xclip` to be installed and available in the system PATH.
@@ -55,5 +55,5 @@ python assemble_prompt.py TEMPLATE MAP
 ### Example
 
 ```bash
-python assemble_prompt.py prompt_template.txt mapping.json
+python prompt_build.py prompt_template.txt mapping.json
 ```

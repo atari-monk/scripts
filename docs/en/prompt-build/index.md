@@ -1,4 +1,4 @@
-## Prompt Assembler Script
+## Prompt Build Script
 
 - [Requirements](requirements.md)
 - Features:
@@ -10,7 +10,9 @@
 ### Commits
 
 - feat(prompt-assembler): add prompt-assembler script (2026-06-04)
+- chore(prompt-build): rename prompt-assembler to prompt-build (2026-06-22)
 
 ### Tests
 
-- manual test pass (2026-06-04)
+- manual test pass
+    - 2026-06-04
