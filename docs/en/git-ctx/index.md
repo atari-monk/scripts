@@ -3,7 +3,6 @@
 - [Requirements](requirements.md)
 - Features:
     - [Script](feature-01-script.md)
-    - [Bash Wrapper](feature-02-bash-wrapper.md)
 - [Implementation](implementation.md)
 - [Documentation](documentation.md)
 

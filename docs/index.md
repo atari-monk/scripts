@@ -6,13 +6,13 @@
 
 ### Scripts
 
-- [Git Context](en/git-ctx/index.md)
-- [Prompt Assembler](en/prompt-assembler/index.md)
+- [Proj Init](en/proj-init/index.md)
+- [Git Ctx](en/git-ctx/index.md)
+- [Md Index](en/md-index/index.md)
+- [Prompt Build](en/prompt-build/index.md)
 - [Prompt](en/prompt/index.md)
-- [Initialize Structure](en/initialize-structure/index.md)
-- [Template Expand](en/tpl-expand/index.md)
-- [Markdown Index](en/md-index/index.md)
 - [Scripts](en/scripts/index.md)
+- [Tpl Expand](en/tpl-expand/index.md)
 
 ---
 
