@@ -1,4 +1,4 @@
-## Prompt Assembler Script Feature 02 - Cli Script
+## Prompt Script Feature 02 - Cli Script
 
 ### Goal
 
